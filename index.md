@@ -26,11 +26,11 @@
       
       			embeddedservice_bootstrap.init(
       				'00D1e0000000pRK',
-      				'devMIAWtestGithub1',
-      				'https://hkbn--devallen.sandbox.my.site.com/ESWdevMIAWtestGithub11727688209169',
-      				{
-      					scrt2URL: 'https://hkbn--devallen.sandbox.my.salesforce-scrt.com'
-      				}
+				'github2',
+				'https://hkbn--devallen.sandbox.my.site.com/ESWgithub21727943898368',
+				{
+					scrt2URL: 'https://hkbn--devallen.sandbox.my.salesforce-scrt.com'
+				}
       			);
       		} catch (err) {
       			console.error('Error loading Embedded Messaging: ', err);
@@ -38,6 +38,6 @@
       	};
 
       </script>
-      <script type='text/javascript' src='https://hkbn--devallen.sandbox.my.site.com/ESWdevMIAWtestGithub11727688209169/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+      <script type='text/javascript' src='https://hkbn--devallen.sandbox.my.site.com/ESWgithub21727943898368/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
   </body>
 </html>
