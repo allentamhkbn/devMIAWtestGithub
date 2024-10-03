@@ -1,6 +1,14 @@
 <html>
   <body>
+  <button id="toggleButton" onclick="toggleIsLogin()">Toggle isLogin</button>
+    
     <script type='text/javascript'>
+      let isLogin = 'N'; // Default value
+
+      isLogin = isLogin === 'Y' ? 'N' : 'Y';
+        initEmbeddedMessaging(); // Reinitialize Embedded Messaging with updated parameter
+      }
+      
       	function initEmbeddedMessaging() {
       		try {
       			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
