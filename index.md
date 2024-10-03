@@ -5,8 +5,9 @@
     <script type='text/javascript'>
       let isLogin = 'N'; // Default value
 
-      isLogin = isLogin === 'Y' ? 'N' : 'Y';
-        initEmbeddedMessaging(); // Reinitialize Embedded Messaging with updated parameter
+      function toggleIsLogin() {
+        isLogin = isLogin === 'Y' ? 'N' : 'Y';
+        initEmbeddedMessaging();
       }
       
       	function initEmbeddedMessaging() {
