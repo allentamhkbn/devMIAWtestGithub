@@ -1,20 +1,15 @@
 <html>
   <body>
-      <input type="radio" id="isLoginY" name="isLogin" value="Y" onclick="updateIsLogin(this.value)" checked>
-      <label for="isLoginY">Y</label>
-  
-      <input type="radio" id="isLoginN" name="isLogin" value="N" onclick="updateIsLogin(this.value)">
-      <label for="isLoginN">N</label>
+      <input type="text" id="accID" name="accID" value="112233"/>
+      <label for="accID">112233</label>
     
     <script type='text/javascript'>
-      let isLogin = 'N'; // Default value
-
-      function updateIsLogin(value) {
-        isLogin = value;
-        console.log("isLogin="+isLogin);
-      }
+      let isLogin = 'Y'; // Default value
       
       	function initEmbeddedMessaging() {
+			console.log("isLogin="+isLogin);
+			console.log("accID="+accID);
+
       		try {
       			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
       
@@ -23,14 +18,7 @@
       				'devMIAWtestGithub1',
       				'https://hkbn--devallen.sandbox.my.site.com/ESWdevMIAWtestGithub11727688209169',
       				{
-      					scrt2URL: 'https://hkbn--devallen.sandbox.my.salesforce-scrt.com',
-                prechat: {
-                 settings: {
-                   custom: {
-                     isLogin: isLogin // Pass the isLogin parameter here
-                   }
-                 }
-                }
+      					scrt2URL: 'https://hkbn--devallen.sandbox.my.salesforce-scrt.com'
       				}
       			);
       		} catch (err) {
