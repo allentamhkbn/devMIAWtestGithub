@@ -11,6 +11,7 @@
 
       function updateIsLogin(value) {
         isLogin = value;
+        console.log("isLogin="+isLogin);
       }
       
       	function initEmbeddedMessaging() {
@@ -22,7 +23,14 @@
       				'devMIAWtestGithub1',
       				'https://hkbn--devallen.sandbox.my.site.com/ESWdevMIAWtestGithub11727688209169',
       				{
-      					scrt2URL: 'https://hkbn--devallen.sandbox.my.salesforce-scrt.com'
+      					scrt2URL: 'https://hkbn--devallen.sandbox.my.salesforce-scrt.com',
+                prechat: {
+                 settings: {
+                   custom: {
+                     isLogin: isLogin // Pass the isLogin parameter here
+                   }
+                 }
+                }
       				}
       			);
       		} catch (err) {
@@ -30,17 +38,7 @@
       		}
       	};
 
-       // Configure extra pre-chat form details for Salesforce MIAW
-      embedded_svc.settings.extraPrechatFormDetails = [{
-        "label": "Is Login",
-        "transcriptFields": ["Is_Login__c"],
-        "value": isLogin,
-        "displayToAgent": true
-      }];
-      
       </script>
       <script type='text/javascript' src='https://hkbn--devallen.sandbox.my.site.com/ESWdevMIAWtestGithub11727688209169/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
-
-
   </body>
 </html>
