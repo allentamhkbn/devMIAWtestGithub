@@ -29,6 +29,15 @@
       			console.error('Error loading Embedded Messaging: ', err);
       		}
       	};
+
+       // Configure extra pre-chat form details for Salesforce MIAW
+      embedded_svc.settings.extraPrechatFormDetails = [{
+        "label": "Is Login",
+        "transcriptFields": ["Is_Login__c"],
+        "value": isLogin,
+        "displayToAgent": true
+      }];
+      
       </script>
       <script type='text/javascript' src='https://hkbn--devallen.sandbox.my.site.com/ESWdevMIAWtestGithub11727688209169/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 
