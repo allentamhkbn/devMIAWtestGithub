@@ -1,13 +1,16 @@
 <html>
   <body>
-  <button id="toggleButton" onclick="toggleIsLogin()">Toggle isLogin</button>
+      <input type="radio" id="isLoginY" name="isLogin" value="Y" onclick="updateIsLogin(this.value)" checked>
+      <label for="isLoginY">Y</label>
+  
+      <input type="radio" id="isLoginN" name="isLogin" value="N" onclick="updateIsLogin(this.value)">
+      <label for="isLoginN">N</label>
     
     <script type='text/javascript'>
       let isLogin = 'N'; // Default value
 
-      function toggleIsLogin() {
-        isLogin = isLogin === 'Y' ? 'N' : 'Y';
-        initEmbeddedMessaging();
+      function updateIsLogin(value) {
+        isLogin = value;
       }
       
       	function initEmbeddedMessaging() {
