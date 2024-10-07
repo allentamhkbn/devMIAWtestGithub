@@ -13,16 +13,10 @@
       		try {
       			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
-  			// Add extra pre-chat form details here
-			embeddedservice_bootstrap.settings.extraPrechatFormDetails = [{
-			    "label": "isLogin",
-			    "value": isLogin,
-			    "displayToAgent": true
-			}, {
-			  "label": "accID",
-			  "value": accID,
-			  "displayToAgent": true
-			}];
+		     	embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+			  isLogin: isLogin,
+			  accID: accID",
+			});
       
       			embeddedservice_bootstrap.init(
       				'00D1e0000000pRK',
