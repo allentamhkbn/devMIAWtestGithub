@@ -15,7 +15,7 @@
 
 		     	embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
 			  isLogin: isLogin,
-			  accID: accID",
+			  accID: accID"
 			});
       
       			embeddedservice_bootstrap.init(
