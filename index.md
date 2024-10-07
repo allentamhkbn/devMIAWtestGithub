@@ -15,7 +15,7 @@
 				"onEmbeddedMessagingReady", () => {
 					embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
 						"isLogin": isLogin,
-						"accID": accID,
+						"accID": accID.value,
 					});
 				}
 			);
