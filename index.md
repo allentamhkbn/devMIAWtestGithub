@@ -8,23 +8,30 @@
       
       	function initEmbeddedMessaging() {
 			console.log("isLogin="+isLogin);
-			console.log("accID="+accID);
+			console.log("accID="+accID.value);
+
+
+			window.addEventListener(
+				"onEmbeddedMessagingReady", () => {
+					embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+						"isLogin": isLogin,
+						"accID": accID,
+					});
+				}
+			);
 
       		try {
       			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
-		     	embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-			  isLogin: isLogin,
-			  accID: accID
-			});
+				
       
       			embeddedservice_bootstrap.init(
       				'00D1e0000000pRK',
-				'github2',
-				'https://hkbn--devallen.sandbox.my.site.com/ESWgithub21727943898368',
-				{
-					scrt2URL: 'https://hkbn--devallen.sandbox.my.salesforce-scrt.com'
-				}
+					'github2',
+					'https://hkbn--devallen.sandbox.my.site.com/ESWgithub21727943898368',
+					{
+						scrt2URL: 'https://hkbn--devallen.sandbox.my.salesforce-scrt.com'
+					}
       			);
       		} catch (err) {
       			console.error('Error loading Embedded Messaging: ', err);
