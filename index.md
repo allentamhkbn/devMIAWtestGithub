@@ -2,6 +2,16 @@
   <body>
       <input type="text" id="accID" name="accID" value="112233"/>
       <label for="accID">112233</label>
+
+	  <BR/><BR/><BR/>
+
+	  <label for="largeAccount">Large Account:</label>
+		<select id="largeAccount">
+			<option value="GREY" selected>GREY</option>
+			<option value="RED">RED</option>
+			<option value="GREEN">GREEN</option>
+			<option value="BROWN">BROWN</option>
+		</select>
     
     <script type='text/javascript'>
       let isLogin = 'Y'; // Default value
@@ -9,6 +19,7 @@
       	function initEmbeddedMessaging() {
 			console.log("isLogin="+isLogin);
 			console.log("accID="+accID.value);
+			console.log("largeAccount="+largeAccount.value);
 
 
 			window.addEventListener(
@@ -16,6 +27,7 @@
 					embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
 						"isLogin": isLogin,
 						"accID": accID.value,
+						"largeAccount": largeAccount.value,
 					});
 				}
 			);
