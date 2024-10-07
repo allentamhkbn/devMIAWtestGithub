@@ -12,7 +12,7 @@
 
 
 			window.addEventListener(
-				"onEmbeddedMessagingReady", () => {
+				"onEmbeddedMessagingButtonClicked", () => {
 					embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
 						"isLogin": isLogin,
 						"accID": accID.value,
