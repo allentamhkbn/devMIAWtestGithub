@@ -7,8 +7,7 @@
 				window.addEventListener(
 				 "onEmbeddedMessagingButtonClicked", () => {
 				  embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-				   "PPSno": param1,
-				   "param2": param2,
+				   "PPSno": PPSno.value,
 				  });
 				 }
 				);
