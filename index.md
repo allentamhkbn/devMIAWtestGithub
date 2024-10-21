@@ -4,8 +4,7 @@
 <input type="text" id="PPSno" name="PPSno" value="">PPSno
 
 <form>
-        <fieldset>
-            <legend>Is Login:</legend>
+            Is Login:
             <div>
                 <input type="radio" id="loginTrue" name="isLogin" value="true">
                 <label for="loginTrue">True</label>
@@ -14,8 +13,6 @@
                 <input type="radio" id="loginFalse" name="isLogin" value="false">
                 <label for="loginFalse">False</label>
             </div>
-        </fieldset>
-        <button type="submit">Submit</button>
     </form>
 
 <script type='text/javascript'>
@@ -27,11 +24,11 @@
 		   "PPSno": PPSno.value,
 		  });
 
-		embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
+		  embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
 		   "_email": {
 		      "value": "Jane@asd.sdsd",
 		      "isEditableByEndUser": isLogin
-		    });
+		    },});
 		 }
 		);
 	
