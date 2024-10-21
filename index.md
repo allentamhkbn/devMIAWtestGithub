@@ -3,7 +3,6 @@
 
 <input type="text" id="PPSno" name="PPSno" value="">PPSno
 
-<form>
             Is Login:
             <div>
                 <input type="radio" id="loginTrue" name="isLogin" value="true">
@@ -13,7 +12,6 @@
                 <input type="radio" id="loginFalse" name="isLogin" value="false">
                 <label for="loginFalse">False</label>
             </div>
-    </form>
 
 <script type='text/javascript'>
 	function initEmbeddedMessaging() {
@@ -24,10 +22,14 @@
 		   "PPSno": PPSno.value,
 		  });
 
+
+			 const isLogin = document.querySelector('input[name="isLogin"]:checked');
+			 const loginValue = isLogin.value;
+
 		  embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
 		   "_email": {
 		      "value": "Jane@asd.sdsd",
-		      "isEditableByEndUser": isLogin
+		      "isEditableByEndUser": loginValue === 'true'
 		    },});
 		 }
 		);
