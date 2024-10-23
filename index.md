@@ -2,7 +2,7 @@
 <body>
 
 <input type="text" id="PPSno" name="PPSno" value="">PPSno
-
+<br/>
             Is Login:
             <div>
                 <input type="radio" id="loginTrue" name="isLogin" value="true">
@@ -12,6 +12,17 @@
                 <input type="radio" id="loginFalse" name="isLogin" value="false">
                 <label for="loginFalse">False</label>
             </div>
+
+
+<style type='text/css'>
+	.embeddedMessagingConversationButton {
+		background-color: #F36F21;
+		font-family: "Arial", sans-serif;
+	}
+	.embeddedMessagingConversationButton:focus {
+		outline: 1px solid #F36F21;
+}
+</style>
 
 <script type='text/javascript'>
 	function initEmbeddedMessaging() {
