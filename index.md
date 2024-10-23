@@ -34,7 +34,8 @@
 		  });
 
 
-			 const isLogin = document.querySelector('input[name="isLogin"]:checked');
+			 const isLogin = true;
+			 isLogin = document.querySelector('input[name="isLogin"]:checked');
 			 const loginValue = isLogin.value;
 
 		  embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
