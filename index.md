@@ -1,17 +1,48 @@
 <html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Option</title>
+    <style>
+        .radio-group {
+            display: flex;
+            align-items: center;
+        }
+        .radio-group div {
+            margin-right: 20px; /* Space between radio buttons */
+        }
+    </style>
+</head>
 <body>
 
-<input type="text" id="PPSno" name="PPSno" value="">PPSno
+<h2>Demo</h2>
 <br/>
-            Is Login:
-            <div>
-                <input type="radio" id="loginTrue" name="isLogin" value="true">
-                <label for="loginTrue">True</label>
-            </div>
-            <div>
-                <input type="radio" id="loginFalse" name="isLogin" value="false">
-                <label for="loginFalse">False</label>
-            </div>
+<fieldset>
+    <legend>Is Login:</legend>
+    <div class="radio-group">
+        <div>
+            <input type="radio" id="loginTrue" name="isLogin" value="true">
+            <label for="loginTrue">True</label>
+        </div>
+        <div>
+            <input type="radio" id="loginFalse" name="isLogin" value="false" checked>
+            <label for="loginFalse">False</label>
+        </div>
+    </div>
+</fieldset>
+<br/>
+
+<fieldset>
+    <legend>User Information:</legend>
+    <label for="fname">First name:</label>
+    <input type="text" id="fname" name="fname" disabled="true" value="testFirstname"><br><br>
+    <label for="lname">Last name:</label>
+    <input type="text" id="lname" name="lname" disabled="true" value="testLastname"><br><br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" disabled="true" value="testEmail@email.com"><br><br>
+    <label for="PPSno">PPSno:</label>
+    <input type="text" id="PPSno" name="PPSno" disabled="true" value="123456"><br><br>
+</fieldset>
 
 
 <style type='text/css'>
