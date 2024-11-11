@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<h2>Demo</h2>
+<h2>DEVMIAW Demo</h2>
 <br/>
 <fieldset>
     <legend>Is Login:</legend>
@@ -49,13 +49,8 @@
 		const selectedValue = selectElement.value;
 		console.log("readLoginValue.isLogin: ", selectedValue);
 		
-		// Find LWC component and update directly
-		const lwcComponent = document.querySelector('c-custom-pre-chat-form');
-		if (lwcComponent) {
-			lwcComponent.updateLoginValue(selectedValue);
-		}
-		
-		return selectedValue;
+		// Convert string to boolean
+		return selectedValue === 'true' || selectedValue === true;
 	}
     
 	function initEmbeddedMessaging() {
@@ -64,7 +59,7 @@
 				const loginValue = readLoginValue();
 				embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
 				"PPSno": PPSno.value,
-				"isLogin": loginValue,
+				//"isLogin": loginValue,
 				});
 
 
@@ -72,7 +67,8 @@
 				"_email": {
 					"value": "testEmail1234@email.com",
 					"isEditableByEndUser": loginValue,
-				},});
+				},
+			});
 			}
 		);
 	
