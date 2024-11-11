@@ -44,12 +44,11 @@
 
 <script type='text/javascript'>
 
-    let isLogin = false;
-
     function readLoginValue() {
         const selectElement = document.getElementById('isLoginSelect');
         const selectedValue = selectElement.value;
-        isLogin = selectedValue;
+		console.log("readLoginValue.isLogin: ",selectedValue);
+		return selectedValue;
     }
     
 	function initEmbeddedMessaging() {
@@ -57,14 +56,14 @@
 		 "onEmbeddedMessagingButtonClicked", () => {
 		  embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
 		   "PPSno": PPSno.value,
-           "isLogin": isLogin,
+           "isLogin": readLoginValue(),
 		  });
 
 
 		  embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
 		   "_email": {
 		      "value": "testEmail1234@email.com",
-		      "isEditableByEndUser": isLogin,
+		      "isEditableByEndUser": readLoginValue(),
 		    },});
 		 }
 		);
