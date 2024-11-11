@@ -49,6 +49,10 @@
     .radio-group div {
         margin-right: 20px; /* Space between radio buttons */
     }
+    input[type="radio"] {
+        display: inline; /* Ensure radio buttons are displayed inline */
+        margin-right: 10px; /* Space between radio buttons and labels */
+    }
 </style>
 
 
