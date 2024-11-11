@@ -47,35 +47,33 @@
     function readLoginValue() {
         const selectElement = document.getElementById('isLoginSelect');
         const selectedValue = selectElement.value;
-		console.log("readLoginValue.isLogin: ",selectedValue);
-		return selectedValue;
+        console.log("readLoginValue.isLogin: ", selectedValue);
+        
+        // Dispatch custom event
+        const event = new CustomEvent('loginValueChanged', {
+            detail: { isLogin: selectedValue }
+        });
+        window.dispatchEvent(event);
+        
+        return selectedValue;
     }
     
 	function initEmbeddedMessaging() {
 		window.addEventListener(
-		 "onEmbeddedMessagingButtonClicked", () => {
-
-			const isLoginValue = readLoginValue(); // Get the current value
-
-			// Dispatch a custom event with the isLogin value
-			const loginEvent = new CustomEvent('loginvaluechange', {
-				detail: { isLogin: isLoginValue } // Pass the value as detail
-			});
-			window.dispatchEvent(loginEvent); // Dispatch the event
+			"onEmbeddedMessagingButtonClicked", () => {
+				const loginValue = readLoginValue();
+				embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+				"PPSno": PPSno.value,
+				"isLogin": loginValue,
+				});
 
 
-		  embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-		   "PPSno": PPSno.value,
-           "isLogin": isLoginValue,
-		  });
-
-
-		  embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
-		   "_email": {
-		      "value": "testEmail1234@email.com",
-		      "isEditableByEndUser": isLoginValue,
-		    },});
-		 }
+				embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
+				"_email": {
+					"value": "testEmail1234@email.com",
+					"isEditableByEndUser": loginValue,
+				},});
+			}
 		);
 	
 	
