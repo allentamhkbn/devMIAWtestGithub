@@ -10,10 +10,14 @@
 <br/>
 <fieldset>
     <legend>Is Login:</legend>
-            <input type="radio" id="loginTrue" name="isLogin" value="true" onclick={readLoginValue}>
+        <div>
+            <input type="radio" id="loginTrue" name="isLoginRadio" value="true" onclick={readLoginValue}>
             <label for="loginTrue">True</label>
-            <input type="radio" id="loginFalse" name="isLogin" value="false" onclick={readLoginValue} checked>
+        </div>
+        <div>
+            <input type="radio" id="loginFalse" name="isLoginRadio" value="false" onclick={readLoginValue} checked>
             <label for="loginFalse">False</label>
+        </div>
 </fieldset>
 <br/>
 
@@ -37,15 +41,23 @@
 	}
 	.embeddedMessagingConversationButton:focus {
 		outline: 1px solid #F36F21;
-}
+    }
+    .radio-group {
+        display: flex;
+        align-items: center;
+    }
+    .radio-group div {
+        margin-right: 20px; /* Space between radio buttons */
+    }
 </style>
+
 
 <script type='text/javascript'>
 
-    let isReadOnly = false;
+    let isLogin = false;
 
     function readLoginValue() {
-        const radios = document.getElementsByName('isLogin');
+        const radios = document.getElementsByName('isLoginRadio');
         let selectedValue;
         for (const radio of radios) {
             if (radio.checked) {
@@ -54,7 +66,7 @@
             }
         }
         document.getElementById('result').innerText = `Selected Value: ${selectedValue}`;
-        isReadOnly = selectedValue;
+        isLogin = selectedValue;
     }
     
 	function initEmbeddedMessaging() {
@@ -62,14 +74,14 @@
 		 "onEmbeddedMessagingButtonClicked", () => {
 		  embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
 		   "PPSno": PPSno.value,
-           "loginTrue": isReadOnly,
+           "isLogin": isLogin,
 		  });
 
 
 		  embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
 		   "_email": {
 		      "value": "testEmail1234@email.com",
-		      "isEditableByEndUser": isReadOnly,
+		      "isEditableByEndUser": isLogin,
 		    },});
 		 }
 		);
