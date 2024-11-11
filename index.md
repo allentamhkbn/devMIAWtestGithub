@@ -10,14 +10,11 @@
 <br/>
 <fieldset>
     <legend>Is Login:</legend>
-        <div>
-            <input type="radio" id="loginTrue" name="isLoginRadio" value="true" onclick={readLoginValue}>
-            <label for="loginTrue">True</label>
-        </div>
-        <div>
-            <input type="radio" id="loginFalse" name="isLoginRadio" value="false" onclick={readLoginValue} checked>
-            <label for="loginFalse">False</label>
-        </div>
+    <label for="isLoginSelect">Select Login Option:</label>
+    <select id="isLoginSelect" name="isLogin" onchange="readLoginValue()">
+        <option value="true">True</option>
+        <option value="false" selected>False</option>
+    </select>
 </fieldset>
 <br/>
 
@@ -42,17 +39,6 @@
 	.embeddedMessagingConversationButton:focus {
 		outline: 1px solid #F36F21;
     }
-    .radio-group {
-        display: flex;
-        align-items: center;
-    }
-    .radio-group div {
-        margin-right: 20px; /* Space between radio buttons */
-    }
-    input[type="radio"] {
-        display: inline; /* Ensure radio buttons are displayed inline */
-        margin-right: 10px; /* Space between radio buttons and labels */
-    }
 </style>
 
 
@@ -61,15 +47,8 @@
     let isLogin = false;
 
     function readLoginValue() {
-        const radios = document.getElementsByName('isLoginRadio');
-        let selectedValue;
-        for (const radio of radios) {
-            if (radio.checked) {
-                selectedValue = radio.value;
-                break;
-            }
-        }
-        document.getElementById('result').innerText = `Selected Value: ${selectedValue}`;
+        const selectElement = document.getElementById('isLoginSelect');
+        const selectedValue = selectElement.value;
         isLogin = selectedValue;
     }
     
