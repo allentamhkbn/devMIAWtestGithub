@@ -21,11 +21,11 @@
     <legend>Is Login:</legend>
     <div class="radio-group">
         <div>
-            <input type="radio" id="loginTrue" name="isLogin" value="true">
+            <input type="radio" id="loginTrue" name="isLogin" value="true" onclick={toggleReadOnly}>
             <label for="loginTrue">True</label>
         </div>
         <div>
-            <input type="radio" id="loginFalse" name="isLogin" value="false" checked>
+            <input type="radio" id="loginFalse" name="isLogin" value="false" onclick={toggleReadOnly} checked>
             <label for="loginFalse">False</label>
         </div>
     </div>
@@ -56,22 +56,35 @@
 </style>
 
 <script type='text/javascript'>
+    
+    let isReadOnly = true;
+
+    function toggleReadOnly() {
+        this.isReadOnly = !this.isReadOnly;
+        console.log("hi123456534:",this.isReadOnly);
+    }
+
+
 	function initEmbeddedMessaging() {
+
+        const isLogin = document.querySelector('input[name="isLogin"]:checked');
+        const loginValue = isLogin.value;
+
 	
 		window.addEventListener(
+            console.log("sssss:",loginValue),
+
 		 "onEmbeddedMessagingButtonClicked", () => {
 		  embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
 		   "PPSno": PPSno.value,
+           "loginTrue": loginValue,
 		  });
 
 
-			 const isLogin = document.querySelector('input[name="isLogin"]:checked');
-			 const loginValue = isLogin.value;
-
 		  embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
 		   "_email": {
-		      "value": "Jane@asd.sdsd",
-		      "isEditableByEndUser": loginValue === 'true'
+		      "value": "testEmail1234@email.com",
+		      "isEditableByEndUser": loginValue,
 		    },});
 		 }
 		);
