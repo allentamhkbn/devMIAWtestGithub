@@ -54,16 +54,26 @@
 	function initEmbeddedMessaging() {
 		window.addEventListener(
 		 "onEmbeddedMessagingButtonClicked", () => {
+
+			const isLoginValue = readLoginValue(); // Get the current value
+
+			// Dispatch a custom event with the isLogin value
+			const loginEvent = new CustomEvent('loginvaluechange', {
+				detail: { isLogin: isLoginValue } // Pass the value as detail
+			});
+			window.dispatchEvent(loginEvent); // Dispatch the event
+
+
 		  embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
 		   "PPSno": PPSno.value,
-           "isLogin": readLoginValue(),
+           "isLogin": isLoginValue,
 		  });
 
 
 		  embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
 		   "_email": {
 		      "value": "testEmail1234@email.com",
-		      "isEditableByEndUser": readLoginValue(),
+		      "isEditableByEndUser": isLoginValue,
 		    },});
 		 }
 		);
