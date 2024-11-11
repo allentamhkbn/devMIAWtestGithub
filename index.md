@@ -68,6 +68,10 @@
 					"value": "testEmail1234@email.com",
 					"isEditableByEndUser": loginValue,
 				},
+				"PPSNo": {
+					"value": "123999",
+					"isEditableByEndUser": loginValue,
+				},
 			});
 			}
 		);
