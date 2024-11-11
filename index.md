@@ -44,19 +44,19 @@
 
 <script type='text/javascript'>
 
-    function readLoginValue() {
-        const selectElement = document.getElementById('isLoginSelect');
-        const selectedValue = selectElement.value;
-        console.log("readLoginValue.isLogin: ", selectedValue);
-        
-        // Dispatch custom event
-        const event = new CustomEvent('loginValueChanged', {
-            detail: { isLogin: selectedValue }
-        });
-        window.dispatchEvent(event);
-        
-        return selectedValue;
-    }
+	function readLoginValue() {
+		const selectElement = document.getElementById('isLoginSelect');
+		const selectedValue = selectElement.value;
+		console.log("readLoginValue.isLogin: ", selectedValue);
+		
+		// Find LWC component and update directly
+		const lwcComponent = document.querySelector('c-custom-pre-chat-form');
+		if (lwcComponent) {
+			lwcComponent.updateLoginValue(selectedValue);
+		}
+		
+		return selectedValue;
+	}
     
 	function initEmbeddedMessaging() {
 		window.addEventListener(
