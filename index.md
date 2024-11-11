@@ -56,17 +56,23 @@
 </style>
 
 <script type='text/javascript'>
-    
-    let isReadOnly = true;
 
-    function toggleReadOnly() {
-        isReadOnly = !isReadOnly;
-        console.log("hi123456534:",isReadOnly);
+    let isReadOnly = false;
+
+    function readLoginValue() {
+        const radios = document.getElementsByName('isLogin');
+        let selectedValue;
+        for (const radio of radios) {
+            if (radio.checked) {
+                selectedValue = radio.value;
+                break;
+            }
+        }
+        document.getElementById('result').innerText = `Selected Value: ${selectedValue}`;
+        isReadOnly = selectedValue;
     }
-
-
+    
 	function initEmbeddedMessaging() {
-	
 		window.addEventListener(
 		 "onEmbeddedMessagingButtonClicked", () => {
 		  embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
