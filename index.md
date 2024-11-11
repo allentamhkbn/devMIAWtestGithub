@@ -60,31 +60,25 @@
     let isReadOnly = true;
 
     function toggleReadOnly() {
-        this.isReadOnly = !this.isReadOnly;
-        console.log("hi123456534:",this.isReadOnly);
+        isReadOnly = !isReadOnly;
+        console.log("hi123456534:",isReadOnly);
     }
 
 
 	function initEmbeddedMessaging() {
-
-        const isLogin = document.querySelector('input[name="isLogin"]:checked');
-        const loginValue = isLogin.value;
-
 	
 		window.addEventListener(
-            console.log("sssss:",loginValue),
-
 		 "onEmbeddedMessagingButtonClicked", () => {
 		  embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
 		   "PPSno": PPSno.value,
-           "loginTrue": loginValue,
+           "loginTrue": isReadOnly,
 		  });
 
 
 		  embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
 		   "_email": {
 		      "value": "testEmail1234@email.com",
-		      "isEditableByEndUser": loginValue,
+		      "isEditableByEndUser": isReadOnly,
 		    },});
 		 }
 		);
