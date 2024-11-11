@@ -59,7 +59,7 @@
 				const loginValue = readLoginValue();
 				embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
 				"PPSno": PPSno.value,
-				//"isLogin": loginValue,
+				"isLogin": loginValue,
 				});
 
 
