@@ -3,15 +3,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Option</title>
-    <style>
-        .radio-group {
-            display: flex;
-            align-items: center;
-        }
-        .radio-group div {
-            margin-right: 20px; /* Space between radio buttons */
-        }
-    </style>
 </head>
 <body>
 
@@ -19,16 +10,10 @@
 <br/>
 <fieldset>
     <legend>Is Login:</legend>
-    <div class="radio-group">
-        <div>
-            <input type="radio" id="loginTrue" name="isLogin" value="true" onclick={toggleReadOnly}>
+            <input type="radio" id="loginTrue" name="isLogin" value="true" onclick={readLoginValue}>
             <label for="loginTrue">True</label>
-        </div>
-        <div>
-            <input type="radio" id="loginFalse" name="isLogin" value="false" onclick={toggleReadOnly} checked>
+            <input type="radio" id="loginFalse" name="isLogin" value="false" onclick={readLoginValue} checked>
             <label for="loginFalse">False</label>
-        </div>
-    </div>
 </fieldset>
 <br/>
 
