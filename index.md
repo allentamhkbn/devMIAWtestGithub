@@ -46,10 +46,10 @@
 
 <script type='text/javascript'>
 
-	function readLoginValue() {
+	function getIsAllowEdit() {
 		const selectElement = document.getElementById('isLoginSelect');
 		const selectedValue = selectElement.value;
-		console.log("readLoginValue.isLogin: ", selectedValue);
+		console.log("getIsAllowEdit.isLogin: ", selectedValue);
 		
 		// Convert string to boolean
 		return !(selectedValue === 'true' || selectedValue === true);
@@ -58,29 +58,29 @@
 	function initEmbeddedMessaging() {
 		window.addEventListener(
 			"onEmbeddedMessagingButtonClicked", () => {
-				const loginValue = readLoginValue();
+				const isAllowEdit = getIsAllowEdit();
 				embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
 				"PPSno": PPSno.value,
-				"isLogin": loginValue,
+				"isLogin": !isAllowEdit,
 				});
 
 
 				embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
 				"_firstName": {
-					"value": fnameInput.value,
-					"isEditableByEndUser": loginValue,
+					"value": isAllowEdit?'':fnameInput.value,
+					"isEditableByEndUser": isAllowEdit,
 				},
 				"_lastName": {
-					"value": lnameInput.value,
-					"isEditableByEndUser": loginValue,
+					"value": isAllowEdit?'':lnameInput.value,
+					"isEditableByEndUser": isAllowEdit,
 				},
 				"_email": {
-					"value": emailInput.value,
-					"isEditableByEndUser": loginValue,
+					"value": isAllowEdit?'':emailInput.value,
+					"isEditableByEndUser": isAllowEdit,
 				},
 				"Account_No_User_Name": {
-					"value": AccNoInput.value,
-					"isEditableByEndUser": loginValue,
+					"value": isAllowEdit?'':AccNoInput.value,
+					"isEditableByEndUser": isAllowEdit,
 				},
 			});
 			}
