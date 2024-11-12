@@ -70,7 +70,7 @@
 				},
 				"PPSNo": {
 					"value": "123999",
-					"isEditableByEndUser": loginValue,
+					"isEditableByEndUser": false,
 				},
 			});
 			}
