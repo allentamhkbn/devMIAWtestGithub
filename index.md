@@ -11,7 +11,7 @@
 <fieldset>
     <legend>Is Login:</legend>
     <label for="isLoginSelect">Select Login Option:</label>
-    <select id="isLoginSelect" name="isLogin" onchange="readLoginValue()">
+    <select id="isLoginSelect" name="isLogin" onchange="getIsAllowEdit()">
         <option value="true">True</option>
         <option value="false" selected>False</option>
     </select>
