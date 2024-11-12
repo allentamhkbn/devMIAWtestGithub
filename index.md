@@ -52,7 +52,7 @@
 		console.log("readLoginValue.isLogin: ", selectedValue);
 		
 		// Convert string to boolean
-		return selectedValue === 'true' || selectedValue === true;
+		return !(selectedValue === 'true' || selectedValue === true);
 	}
     
 	function initEmbeddedMessaging() {
