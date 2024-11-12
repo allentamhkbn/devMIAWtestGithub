@@ -20,12 +20,14 @@
 
 <fieldset>
     <legend>User Information:</legend>
-    <label for="fname">First name:</label>
-    <input type="text" id="fname" name="fname" disabled="true" value="testFirstname"><br><br>
-    <label for="lname">Last name:</label>
-    <input type="text" id="lname" name="lname" disabled="true" value="testLastname"><br><br>
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" disabled="true" value="testEmail@email.com"><br><br>
+    <label for="fnameInput">First name:</label>
+    <input type="text" id="fnameInput" name="fnameInput" disabled="true" value="testFirstname"><br><br>
+    <label for="lnameInput">Last name:</label>
+    <input type="text" id="lnameInput" name="lnameInput" disabled="true" value="testLastname"><br><br>
+    <label for="emailInput">Email:</label>
+    <input type="email" id="emailInput" name="emailInput" disabled="true" value="testEmail@email.com"><br><br>
+	<label for="AccNoInput">Account No./ User Name:</label>
+    <input type="text" id="AccNoInput" name="AccNoInput" disabled="true" value="ABCD"><br><br>
     <label for="PPSno">PPSno:</label>
     <input type="text" id="PPSno" name="PPSno" disabled="true" value="123456"><br><br>
 </fieldset>
@@ -64,13 +66,21 @@
 
 
 				embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
-				"_email": {
-					"value": "testEmail1234@email.com",
+				"_firstName": {
+					"value": fnameInput.value,
 					"isEditableByEndUser": loginValue,
 				},
-				"PPSNo": {
-					"value": "123999",
-					"isEditableByEndUser": false,
+				"_lastName": {
+					"value": lnameInput.value,
+					"isEditableByEndUser": loginValue,
+				},
+				"_email": {
+					"value": emailInput.value,
+					"isEditableByEndUser": loginValue,
+				},
+				"Account_No_User_Name": {
+					"value": AccNoInput.value,
+					"isEditableByEndUser": loginValue,
 				},
 			});
 			}
