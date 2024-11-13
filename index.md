@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<h2>DEVMIAW Demo</h2>
+<h2>DEVALLEN Demo</h2>
 <br/>
 <fieldset>
     <legend>Is Login:</legend>
@@ -91,11 +91,11 @@
 			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
 			embeddedservice_bootstrap.init(
-				'00DHz0000003j20',
-				'miawDemo',
-				'https://hkbn--devmiaw.sandbox.my.site.com/ESWmiawDemo1728371866859',
+				'00D1e0000000pRK',
+				'github2',
+				'https://hkbn--devallen.sandbox.my.site.com/ESWgithub21727943898368',
 				{
-					scrt2URL: 'https://hkbn--devmiaw.sandbox.my.salesforce-scrt.com'
+					scrt2URL: 'https://hkbn--devallen.sandbox.my.salesforce-scrt.com'
 				}
 			);
 		} catch (err) {
@@ -103,7 +103,8 @@
 		}
 	};
 </script>
-<script type='text/javascript' src='https://hkbn--devmiaw.sandbox.my.site.com/ESWmiawDemo1728371866859/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+<script type='text/javascript' src='https://hkbn--devallen.sandbox.my.site.com/ESWgithub21727943898368/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+
 
 </body>
 </html>
