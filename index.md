@@ -29,7 +29,7 @@
 	<label for="AccNoInput">Account No./ User Name:</label>
     <input type="text" id="AccNoInput" name="AccNoInput" disabled="true" value="ABCD"><br><br>
     <label for="PPSno">PPSno:</label>
-    <input type="text" id="PPSno" name="PPSno" disabled="false" value="123456"><br><br>
+    <input type="text" id="PPSno" name="PPSno" value="123456"><br><br>
 </fieldset>
 
 
