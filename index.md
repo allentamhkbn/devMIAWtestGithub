@@ -73,7 +73,7 @@
 			            }
 			        });
 			
-			        console.log("onEmbeddedMessagingButtonClicked.prechatdata" :prechatdata.detail);
+			        console.log("onEmbeddedMessagingButtonClicked.prechatdata: ",prechatdata);
 			        window.dispatchEvent(preChatDataEvent);
 			}
 		);
