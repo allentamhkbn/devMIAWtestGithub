@@ -87,6 +87,20 @@
 					"isEditableByEndUser": isAllowEdit,
 				},
 			});
+
+				// Create a custom event to send data to the LWC
+			        const preChatDataEvent = new CustomEvent('prechatdata', {
+			            detail: {
+			                firstName: isAllowEdit ? '' : fnameInput.value,
+			                lastName: isAllowEdit ? '' : lnameInput.value,
+			                email: isAllowEdit ? '' : emailInput.value,
+			                accountNo: isAllowEdit ? '' : AccNoInput.value,
+			                isEditable: isAllowEdit
+			            }
+			        });
+			
+			        // Dispatch the event
+			        window.dispatchEvent(preChatDataEvent);
 			}
 		);
 	
