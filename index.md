@@ -30,6 +30,7 @@
     <input type="text" id="AccNoInput" name="AccNoInput" disabled="true" value="ABCD"><br><br>
     <label for="PPSno">PPSno:</label>
     <input type="text" id="PPSno" name="PPSno" disabled="true" value="123456"><br><br>
+	<c-custom-pre-chat-form lname="yoyoyo"></c-custom-pre-chat-form>
 </fieldset>
 
 
