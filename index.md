@@ -32,11 +32,6 @@
     <input type="text" id="PPSno" name="PPSno" disabled="true" value="123456"><br><br>
 </fieldset>
 
-<template>
-    <c-custom-pre-chat-form lname="RRR"></c-custom-pre-chat-form>
-</template>
-
-
 <style type='text/css'>
 	.embeddedMessagingConversationButton {
 		background-color: #F36F21;
@@ -68,27 +63,6 @@
 				"isLogin": !isAllowEdit,
 				});
 
-
-				embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
-				"_firstName": {
-					"value": isAllowEdit?'':fnameInput.value,
-					"isEditableByEndUser": isAllowEdit,
-				},
-				"_lastName": {
-					"value": isAllowEdit?'':lnameInput.value,
-					"isEditableByEndUser": isAllowEdit,
-				},
-				"_email": {
-					"value": isAllowEdit?'':emailInput.value,
-					"isEditableByEndUser": isAllowEdit,
-				},
-				"Account_No_User_Name": {
-					"value": isAllowEdit?'':AccNoInput.value,
-					"isEditableByEndUser": isAllowEdit,
-				},
-			});
-
-				// Create a custom event to send data to the LWC
 			        const preChatDataEvent = new CustomEvent('prechatdata', {
 			            detail: {
 			                firstName: isAllowEdit ? '' : fnameInput.value,
@@ -99,7 +73,7 @@
 			            }
 			        });
 			
-			        // Dispatch the event
+			        console.log("onEmbeddedMessagingButtonClicked.prechatdata" :prechatdata.detail)
 			        window.dispatchEvent(preChatDataEvent);
 			}
 		);
