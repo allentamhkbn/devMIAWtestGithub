@@ -27,9 +27,7 @@
     <label for="emailInput">Email:</label>
     <input type="email" id="emailInput" name="emailInput" disabled="true" value="testEmail@email.com"><br><br>
 	<label for="AccNoInput">Account No./ User Name:</label>
-    <input type="text" id="AccNoInput" name="AccNoInput" disabled="true" value="ABCD"><br><br>
-    <label for="PPSno">PPSno:</label>
-    <input type="text" id="PPSno" name="PPSno" value="123456"><br><br>
+    <input type="text" id="AccNoInput" name="AccNoInput" value="ABCD"><br><br>
 </fieldset>
 
 
@@ -60,7 +58,6 @@
 			"onEmbeddedMessagingButtonClicked", () => {
 				const isAllowEdit = getIsAllowEdit();
 				embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-				"PPSno": PPSno.value,
 				"isLogin": !isAllowEdit,
 				});
 
