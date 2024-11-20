@@ -27,7 +27,7 @@
     <label for="emailInput">Email:</label>
     <input type="email" id="emailInput" name="emailInput" disabled="true" value="testEmail@email.com"><br><br>
 	<label for="AccNoInput">Account No./ User Name:</label>
-    <input type="text" id="AccNoInput" name="AccNoInput" value="ABCD"><br><br>
+    <input type="text" id="AccNoInput" name="AccNoInput" value="123456"><br><br>
 </fieldset>
 
 
