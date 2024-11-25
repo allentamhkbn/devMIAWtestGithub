@@ -80,7 +80,7 @@
 			}
 		);
 
-		this.template.addEventListener('prechatdata', this.handlePrechatSubmit.bind(this));
+		addEventListener('prechatdata', this.handlePrechatSubmit.bind(this));
 	
 	
 		try {
