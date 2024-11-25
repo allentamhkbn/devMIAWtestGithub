@@ -100,7 +100,7 @@
 	};
 
 
-	handlePrechatSubmit(event) {
+	function handlePrechatSubmit(event) {
         const { firstName, lastName, email, accountNo, isEditable } = event.detail;
         
         console.log('Pre-chat Data:', {
@@ -110,7 +110,7 @@
             accountNo,
             isEditable
         });
-    }
+    };
 </script>
 <script type='text/javascript' src='https://hkbn--devallen.sandbox.my.site.com/ESWgithub21727943898368/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 
