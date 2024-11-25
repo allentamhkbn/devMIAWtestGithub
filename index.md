@@ -45,6 +45,8 @@
 
 <script type='text/javascript'>
 
+	
+
 	function getIsAllowEdit() {
 		const selectElement = document.getElementById('isLoginSelect');
 		const selectedValue = selectElement.value;
@@ -74,9 +76,11 @@
 			        });
 			
 			        console.log("onEmbeddedMessagingButtonClicked.prechatdata: ",preChatDataEvent );
-			        window.dispatchEvent(preChatDataEvent);
+				this.dispatchEvent(preChatDataEvent);
 			}
 		);
+
+		this.template.addEventListener('prechatdata', this.handlePrechatSubmit.bind(this));
 	
 	
 		try {
@@ -94,6 +98,19 @@
 			console.error('Error loading Embedded Messaging: ', err);
 		}
 	};
+
+
+	handlePrechatSubmit(event) {
+        const { firstName, lastName, email, accountNo, isEditable } = event.detail;
+        
+        console.log('Pre-chat Data:', {
+            firstName,
+            lastName,
+            email,
+            accountNo,
+            isEditable
+        });
+    }
 </script>
 <script type='text/javascript' src='https://hkbn--devallen.sandbox.my.site.com/ESWgithub21727943898368/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 
