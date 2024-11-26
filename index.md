@@ -58,7 +58,7 @@
     
 	function initEmbeddedMessaging() {
 		window.addEventListener(
-			"onEmbeddedMessagingButtonClicked", () => {
+			"onEmbeddedMessagingReady", () => {
 				const isAllowEdit = getIsAllowEdit();
 				embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
 				"PPSno": PPSno.value,
@@ -77,6 +77,7 @@
 			
 			        console.log("onEmbeddedMessagingButtonClicked.prechatdata: ",preChatDataEvent );
 				this.dispatchEvent(preChatDataEvent);
+				console.log("event dispatched: ",preChatDataEvent);
 			}
 		);
 
