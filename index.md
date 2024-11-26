@@ -27,7 +27,7 @@
     <label for="emailInput">Email:</label>
     <input type="email" id="emailInput" name="emailInput" disabled="true" value="testEmail@email.com"><br><br>
 	<label for="AccNoInput">Account No./ User Name:</label>
-    <input type="text" id="AccNoInput" name="AccNoInput" disabled="true" value="ABCD"><br><br>
+    <input type="text" id="accNoInput" name="accNoInput" disabled="true" value="ABCD"><br><br>
     <label for="PPSno">PPSno:</label>
     <input type="text" id="PPSno" name="PPSno" disabled="true" value="123456"><br><br>
 </fieldset>
@@ -58,30 +58,33 @@
     
 	function initEmbeddedMessaging() {
 		window.addEventListener(
-			"onEmbeddedMessagingReady", () => {
+			"onEmbeddedMessagingButtonClicked", () => {
 				const isAllowEdit = getIsAllowEdit();
 				embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
 				"PPSno": PPSno.value,
 				"isLogin": !isAllowEdit,
 				});
-
-			        const preChatDataEvent = new CustomEvent('prechatdata', {
-			            detail: {
-			                firstName: isAllowEdit ? '' : fnameInput.value,
-			                lastName: isAllowEdit ? '' : lnameInput.value,
-			                email: isAllowEdit ? '' : emailInput.value,
-			                accountNo: isAllowEdit ? '' : AccNoInput.value,
-			                isEditable: isAllowEdit
-			            }
-			        });
 			
-			        console.log("onEmbeddedMessagingButtonClicked.prechatdata: ",preChatDataEvent );
-				this.dispatchEvent(preChatDataEvent);
-				console.log("event dispatched: ",preChatDataEvent);
+				embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
+				"_firstName": {
+					"value": isAllowEdit?'':fnameInput,
+					"isEditableByEndUser": isAllowEdit,
+				},
+				"_lastName": {
+					"value": isAllowEdit?'':lnameInput,
+					"isEditableByEndUser": isAllowEdit,
+				},
+				"_email": {
+					"value": isAllowEdit?'':emailInput,
+					"isEditableByEndUser": isAllowEdit,
+				},
+				"Account No./ User Name": {
+					"value": isAllowEdit?'':accNoInput,
+					"isEditableByEndUser": isAllowEdit,
+				},
+				});
 			}
 		);
-
-		//addEventListener('prechatdata', this.handlePrechatSubmit.bind(this));
 	
 	
 		try {
@@ -99,19 +102,6 @@
 			console.error('Error loading Embedded Messaging: ', err);
 		}
 	};
-
-
-	function handlePrechatSubmit(event) {
-        const { firstName, lastName, email, accountNo, isEditable } = event.detail;
-        
-        console.log('Pre-chat Data:', {
-            firstName,
-            lastName,
-            email,
-            accountNo,
-            isEditable
-        });
-    };
 </script>
 <script type='text/javascript' src='https://hkbn--devallen.sandbox.my.site.com/ESWgithub21727943898368/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 
