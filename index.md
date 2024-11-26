@@ -98,6 +98,20 @@
 					scrt2URL: 'https://hkbn--devallen.sandbox.my.salesforce-scrt.com'
 				}
 			);
+
+			var selectedEvent = new CustomEvent('userInfo',
+				{
+					detail: {
+						fname: "yy",
+						lname : "lam",
+						email: "yylam@123.ccc"
+					},
+					bubbles: true,
+					composed: true
+				});
+
+
+			window.dispatchEvent(selectedEvent);
 		} catch (err) {
 			console.error('Error loading Embedded Messaging: ', err);
 		}
