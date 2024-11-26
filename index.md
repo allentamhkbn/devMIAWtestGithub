@@ -67,19 +67,19 @@
 			
 				embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
 				"_firstName": {
-					"value": isAllowEdit?'':fnameInput,
+					"value": isAllowEdit?'':fnameInput.value,
 					"isEditableByEndUser": isAllowEdit,
 				},
 				"_lastName": {
-					"value": isAllowEdit?'':lnameInput,
+					"value": isAllowEdit?'':lnameInput.value,
 					"isEditableByEndUser": isAllowEdit,
 				},
 				"_email": {
-					"value": isAllowEdit?'':emailInput,
+					"value": isAllowEdit?'':emailInput.value,
 					"isEditableByEndUser": isAllowEdit,
 				},
 				"Account No./ User Name": {
-					"value": isAllowEdit?'':accNoInput,
+					"value": isAllowEdit?'':accNoInput.value,
 					"isEditableByEndUser": isAllowEdit,
 				},
 				});
