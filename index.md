@@ -113,7 +113,6 @@
     };
 </script>
 <script type='text/javascript' src='https://hkbn--devallen.sandbox.my.site.com/ESWgithub21727943898368/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
-<iframe src="hkbn--devallen--c.sandbox.vf.force.com" allow="allentamhkbn.github.io"></iframe>
 
 </body>
 </html>
