@@ -1,6 +1,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' allentamhkbn.github.io *.allentamhkbn.github.io hkbn--devallen--c.sandbox.vf.force.com">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Option</title>
 </head>
@@ -32,21 +33,8 @@
     <input type="text" id="PPSno" name="PPSno" disabled="true" value="123456"><br><br>
 </fieldset>
 
-<style type='text/css'>
-	.embeddedMessagingConversationButton {
-		background-color: #F36F21;
-		font-family: "Arial", sans-serif;
-	}
-	.embeddedMessagingConversationButton:focus {
-		outline: 1px solid #F36F21;
-    }
-</style>
-
 
 <script type='text/javascript'>
-
-	
-
 	function getIsAllowEdit() {
 		const selectElement = document.getElementById('isLoginSelect');
 		const selectedValue = selectElement.value;
@@ -99,19 +87,6 @@
 				}
 			);
 
-			var selectedEvent = new CustomEvent('userInfo',
-				{
-					detail: {
-						fname: "yy",
-						lname : "lam",
-						email: "yylam@123.ccc"
-					},
-					bubbles: true,
-					composed: true
-				});
-
-
-			window.dispatchEvent(selectedEvent);
 		} catch (err) {
 			console.error('Error loading Embedded Messaging: ', err);
 		}
