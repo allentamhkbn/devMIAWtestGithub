@@ -1,7 +1,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' allentamhkbn.github.io *.allentamhkbn.github.io hkbn--devallen--c.sandbox.vf.force.com">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://allentamhkbn.github.io https://hkbn--devallen--c.sandbox.vf.force.com">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Option</title>
 </head>
@@ -81,7 +81,7 @@
 			embeddedservice_bootstrap.init(
 				'00D1e0000000pRK',
 				'github2',
-				'https://hkbn--devallen.sandbox.my.site.com/ESWgithub21727943898368/communication/:term',
+				'https://hkbn--devallen.sandbox.my.site.com/ESWgithub21727943898368',
 				{
 					scrt2URL: 'https://hkbn--devallen.sandbox.my.salesforce-scrt.com'
 				}
