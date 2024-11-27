@@ -93,7 +93,7 @@
 			embeddedservice_bootstrap.init(
 				'00D1e0000000pRK',
 				'github2',
-				'https://hkbn--devallen.sandbox.my.site.com/ESWgithub21727943898368',
+				'https://hkbn--devallen.sandbox.my.site.com/ESWgithub21727943898368/communication',
 				{
 					scrt2URL: 'https://hkbn--devallen.sandbox.my.salesforce-scrt.com'
 				}
