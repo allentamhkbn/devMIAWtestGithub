@@ -1,7 +1,6 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https://allentamhkbn.github.io https://hkbn--devallen--c.sandbox.vf.force.com">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Option</title>
 </head>
@@ -80,8 +79,8 @@
 
 			embeddedservice_bootstrap.init(
 				'00D1e0000000pRK',
-				'github2',
-				'https://hkbn--devallen.sandbox.my.site.com/ESWgithub21727943898368',
+				'Test20241128',
+				'https://hkbn--devallen.sandbox.my.site.com/ESWTest202411281732760340131',
 				{
 					scrt2URL: 'https://hkbn--devallen.sandbox.my.salesforce-scrt.com'
 				}
@@ -92,7 +91,7 @@
 		}
 	};
 </script>
-<script type='text/javascript' src='https://hkbn--devallen.sandbox.my.site.com/ESWgithub21727943898368/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+<script type='text/javascript' src='https://hkbn--devallen.sandbox.my.site.com/ESWTest202411281732760340131/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 
 </body>
 </html>
