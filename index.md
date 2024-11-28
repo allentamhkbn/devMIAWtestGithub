@@ -59,6 +59,7 @@
 				const isAllowEdit = getIsAllowEdit();
 				embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
 				"isLogin": !isAllowEdit,
+				"PPSno": AccNoInput.value,
 				});
 
 
