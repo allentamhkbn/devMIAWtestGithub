@@ -152,6 +152,23 @@
         const chatStatus = document.getElementById('chatStatus');
         chatStatus.textContent = 'We are currently offline. Please check back later.';
     }
+
+ function launchChat() {
+           embeddedservice_bootstrap.utilAPI.launchChat()
+               .then(() => {
+                   console.log(
+                       'Successfully launched Messaging'
+                   );
+               }).catch(() => {
+                   console.log(
+                       'Some error occurred when launching Messaging'
+                   );
+               }).finally(() => {
+                   console.log(
+                       'Successfully launched Messaging - Finally'
+                   );
+               });
+       }
 </script>
 
 </body>
