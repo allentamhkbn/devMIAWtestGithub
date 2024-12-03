@@ -27,13 +27,23 @@
     <label for="emailInput">Email:</label>
     <input type="email" id="emailInput" name="emailInput" disabled="true" value="testEmail@email.com"><br><br>
 	<label for="AccNoInput">Account No./ User Name:</label>
-    <input type="text" id="accNoInput" name="accNoInput" disabled="true" value="ABCD"><br><br>
-    <label for="PPSno">PPSno:</label>
-    <input type="text" id="PPSno" name="PPSno" disabled="true" value="123456"><br><br>
+    <input type="text" id="AccNoInput" name="AccNoInput" value="123456"><br><br>
 </fieldset>
 
 
+<style type='text/css'>
+	.embeddedMessagingConversationButton {
+		background-color: #F36F21;
+		font-family: "Arial", sans-serif;
+	}
+	.embeddedMessagingConversationButton:focus {
+		outline: 1px solid #F36F21;
+    }
+</style>
+
+
 <script type='text/javascript'>
+
 	function getIsAllowEdit() {
 		const selectElement = document.getElementById('isLoginSelect');
 		const selectedValue = selectElement.value;
@@ -48,10 +58,11 @@
 			"onEmbeddedMessagingButtonClicked", () => {
 				const isAllowEdit = getIsAllowEdit();
 				embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-				"PPSno": PPSno.value,
 				"isLogin": !isAllowEdit,
+				"PPSno": AccNoInput.value,
 				});
-			
+
+
 				embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
 				"_firstName": {
 					"value": isAllowEdit?'':fnameInput.value,
@@ -66,16 +77,18 @@
 					"isEditableByEndUser": isAllowEdit,
 				},
 				"Account No./ User Name": {
-					"value": isAllowEdit?'':accNoInput.value,
+					"value": isAllowEdit?'':AccNoInput.value,
 					"isEditableByEndUser": isAllowEdit,
 				},
-				});
+			});
 			}
 		);
 	
 	
 		try {
 			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+
+			embeddedservice_bootstrap.settings.hideChatButtonOnLoad = true;
 
 			embeddedservice_bootstrap.init(
 				'00D1e0000000pRK',
@@ -92,6 +105,35 @@
 	};
 </script>
 <script type='text/javascript' src='https://hkbn--devallen.sandbox.my.site.com/ESWTest202411281732760340131/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+
+<div style="position: fixed; bottom: 35px; right: 35px; border-radius: 40px; background: #801818; cursor: pointer; color: white">
+	<div onclick="launchChat()">
+	   <img 
+		  src="https://uates-online.hkbn.net/myaccount/res/images/login/logo.jpg"
+		  style="border-radius: 50%; float:left; margin: 5px;"
+		  height="50px"
+		  width="50px"/>
+	  <h3 style="float:right;">Hi, How can I help you?</h3>
+	</div>
+</div>
+<script>
+function launchChat() {
+	  embeddedservice_bootstrap.utilAPI.launchChat()
+		  .then(() => {
+			  console.log(
+				  'Successfully launched Messaging'
+			  );
+		  }).catch(() => {
+			  console.log(
+				  'Some error occurred when launching Messaging'
+			  );
+		  }).finally(() => {
+			  console.log(
+				  'Successfully launched Messaging - Finally'
+			  );
+		  });
+  }
+</script>
 
 </body>
 </html>
