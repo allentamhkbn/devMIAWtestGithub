@@ -15,6 +15,12 @@
         <option value="true">True</option>
         <option value="false" selected>False</option>
     </select>
+	<br/>
+	<label for="isWithinBusinessHourSelect">Is Business Hour:</label>
+    <select id="isWithinBusinessHourSelect" name="isBusinessHour" onchange="getIsBusinessHour()">
+        <option value="true" selected>True</option>
+        <option value="false">False</option>
+    </select>
 </fieldset>
 <br/>
 
@@ -39,6 +45,28 @@
 	.embeddedMessagingConversationButton:focus {
 		outline: 1px solid #F36F21;
     }
+	#chatButton {
+        position: fixed;
+        bottom: 35px;
+        right: 35px;
+        border-radius: 40px;
+        background: #064273; /* Initial background color */
+        cursor: pointer;
+        color: white;
+    }
+
+    #chatButton:hover {
+        background: #ff7912; /* Background color on hover */
+    }
+
+    #chatContent {
+        display: flex;
+        align-items: center; /* Center items vertically */
+    }
+
+    #chatStatus {
+        margin-left: 10px; /* Space between image and text */
+    }
 </style>
 
 
@@ -51,6 +79,15 @@
 		
 		// Convert string to boolean
 		return !(selectedValue === 'true' || selectedValue === true);
+	}
+
+	function getIsBusinessHour() {
+		const selectElement = document.getElementById('isWithinBusinessHourSelect');
+		const selectedValue = selectElement.value;
+		console.log("getIsBusinessHour.isBusinessHour: ", selectedValue);
+		
+		// Convert string to boolean
+		return (selectedValue === 'true' || selectedValue === true);
 	}
     
 	function initEmbeddedMessaging() {
@@ -86,8 +123,9 @@
 	
 	
 		try {
-			embeddedservice_bootstrap.settings.prechatBackgroundImgURL = 'assets/img/letsTalkbbb.jpg';
 			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+
+			embeddedservice_bootstrap.settings.hideChatButtonOnLoad = true;
 
 			embeddedservice_bootstrap.init(
 				'00DHz0000003j20',
@@ -97,12 +135,64 @@
 					scrt2URL: 'https://hkbn--devmiaw.sandbox.my.salesforce-scrt.com'
 				}
 			);
+
 		} catch (err) {
 			console.error('Error loading Embedded Messaging: ', err);
 		}
 	};
 </script>
 <script type='text/javascript' src='https://hkbn--devmiaw.sandbox.my.site.com/ESWmiawDemo1728371866859/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+
+<!--<div id="chatButton" style="position: fixed; bottom: 35px; right: 35px; border-radius: 40px; background: #064273; cursor: pointer; color: white;">-->
+<div id="chatButton" onclick="handleChatClick()">
+    <div onclick="handleChatClick()">
+        <img 
+            src="https://uates-online.hkbn.net/myaccount/res/images/login/logo.jpg"
+            style="border-radius: 50%; float:left; margin: 5px;"
+            height="50px"
+            width="50px"/>
+        <h3 id="chatStatus" style="float:right;">Hi, How can I help you?</h3>
+    </div>
+</div>
+
+<script>
+    function isWithinBusinessHours() {
+        const now = new Date();
+        const hours = now.getHours();
+        //return hours >= 9 && hours < 21; // 9 AM to 9 PM
+	    return getIsBusinessHour();
+    }
+
+    function handleChatClick() {
+        if (isWithinBusinessHours()) {
+            launchChat(); // Call your chat function
+        } else {
+            displayOfflineMessage();
+        }
+    }
+
+    function displayOfflineMessage() {
+        const chatStatus = document.getElementById('chatStatus');
+        chatStatus.textContent = 'We are currently offline. Please check back later.';
+    }
+
+ function launchChat() {
+           embeddedservice_bootstrap.utilAPI.launchChat()
+               .then(() => {
+                   console.log(
+                       'Successfully launched Messaging'
+                   );
+               }).catch(() => {
+                   console.log(
+                       'Some error occurred when launching Messaging'
+                   );
+               }).finally(() => {
+                   console.log(
+                       'Successfully launched Messaging - Finally'
+                   );
+               });
+       }
+</script>
 
 </body>
 </html>
