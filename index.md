@@ -15,6 +15,12 @@
         <option value="true">True</option>
         <option value="false" selected>False</option>
     </select>
+	<br/>
+	<label for="isWithinBusinessHourSelect">Is Business Hour:</label>
+    <select id="isWithinBusinessHourSelect" name="isBusinessHour" onchange="getIsBusinessHour()">
+        <option value="true" selected>True</option>
+        <option value="false">False</option>
+    </select>
 </fieldset>
 <br/>
 
@@ -48,6 +54,15 @@
 		const selectElement = document.getElementById('isLoginSelect');
 		const selectedValue = selectElement.value;
 		console.log("getIsAllowEdit.isLogin: ", selectedValue);
+		
+		// Convert string to boolean
+		return !(selectedValue === 'true' || selectedValue === true);
+	}
+
+	function getIsBusinessHour() {
+		const selectElement = document.getElementById('isWithinBusinessHourSelect');
+		const selectedValue = selectElement.value;
+		console.log("getIsBusinessHour.isBusinessHour: ", selectedValue);
 		
 		// Convert string to boolean
 		return !(selectedValue === 'true' || selectedValue === true);
@@ -106,33 +121,37 @@
 </script>
 <script type='text/javascript' src='https://hkbn--devallen.sandbox.my.site.com/ESWTest202411281732760340131/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 
-<div style="position: fixed; bottom: 35px; right: 35px; border-radius: 40px; background: #801818; cursor: pointer; color: white">
-	<div onclick="launchChat()">
-	   <img 
-		  src="https://uates-online.hkbn.net/myaccount/res/images/login/logo.jpg"
-		  style="border-radius: 50%; float:left; margin: 5px;"
-		  height="50px"
-		  width="50px"/>
-	  <h3 style="float:right;">Hi, How can I help you?</h3>
-	</div>
+<div id="chatButton" style="position: fixed; bottom: 35px; right: 35px; border-radius: 40px; background: #B0C4DF; cursor: pointer; color: white;">
+    <div onclick="handleChatClick()">
+        <img 
+            src="https://uates-online.hkbn.net/myaccount/res/images/login/logo.jpg"
+            style="border-radius: 50%; float:left; margin: 5px;"
+            height="50px"
+            width="50px"/>
+        <h3 id="chatStatus" style="float:right;">Hi, How can I help you?</h3>
+    </div>
 </div>
+
 <script>
-function launchChat() {
-	  embeddedservice_bootstrap.utilAPI.launchChat()
-		  .then(() => {
-			  console.log(
-				  'Successfully launched Messaging'
-			  );
-		  }).catch(() => {
-			  console.log(
-				  'Some error occurred when launching Messaging'
-			  );
-		  }).finally(() => {
-			  console.log(
-				  'Successfully launched Messaging - Finally'
-			  );
-		  });
-  }
+    function isWithinBusinessHours() {
+        const now = new Date();
+        const hours = now.getHours();
+        //return hours >= 9 && hours < 21; // 9 AM to 9 PM
+	    return getIsBusinessHour();
+    }
+
+    function handleChatClick() {
+        if (isWithinBusinessHours()) {
+            launchChat(); // Call your chat function
+        } else {
+            displayOfflineMessage();
+        }
+    }
+
+    function displayOfflineMessage() {
+        const chatStatus = document.getElementById('chatStatus');
+        chatStatus.textContent = 'We are currently offline. Please check back later.';
+    }
 </script>
 
 </body>
