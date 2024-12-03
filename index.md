@@ -65,7 +65,7 @@
 		console.log("getIsBusinessHour.isBusinessHour: ", selectedValue);
 		
 		// Convert string to boolean
-		return !(selectedValue === 'true' || selectedValue === true);
+		return (selectedValue === 'true' || selectedValue === true);
 	}
     
 	function initEmbeddedMessaging() {
@@ -121,7 +121,7 @@
 </script>
 <script type='text/javascript' src='https://hkbn--devallen.sandbox.my.site.com/ESWTest202411281732760340131/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 
-<div id="chatButton" style="position: fixed; bottom: 35px; right: 35px; border-radius: 40px; background: #B0C4DF; cursor: pointer; color: white;">
+<div id="chatButton" style="position: fixed; bottom: 35px; right: 35px; border-radius: 40px; background: #064273; cursor: pointer; color: white;">
     <div onclick="handleChatClick()">
         <img 
             src="https://uates-online.hkbn.net/myaccount/res/images/login/logo.jpg"
