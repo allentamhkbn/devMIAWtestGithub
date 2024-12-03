@@ -45,6 +45,28 @@
 	.embeddedMessagingConversationButton:focus {
 		outline: 1px solid #F36F21;
     }
+	#chatButton {
+        position: fixed;
+        bottom: 35px;
+        right: 35px;
+        border-radius: 40px;
+        background: #064273; /* Initial background color */
+        cursor: pointer;
+        color: white;
+    }
+
+    #chatButton:hover {
+        background: #ff7912; /* Background color on hover */
+    }
+
+    #chatContent {
+        display: flex;
+        align-items: center; /* Center items vertically */
+    }
+
+    #chatStatus {
+        margin-left: 10px; /* Space between image and text */
+    }
 </style>
 
 
@@ -121,7 +143,8 @@
 </script>
 <script type='text/javascript' src='https://hkbn--devallen.sandbox.my.site.com/ESWTest202411281732760340131/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 
-<div id="chatButton" style="position: fixed; bottom: 35px; right: 35px; border-radius: 40px; background: #064273; cursor: pointer; color: white;">
+<!--<div id="chatButton" style="position: fixed; bottom: 35px; right: 35px; border-radius: 40px; background: #064273; cursor: pointer; color: white;">-->
+<div id="chatButton" onclick="handleChatClick()">
     <div onclick="handleChatClick()">
         <img 
             src="https://uates-online.hkbn.net/myaccount/res/images/login/logo.jpg"
