@@ -165,7 +165,7 @@
 
     function handleChatClick() {
         if (isWithinBusinessHours()) {
-            launchChat(); // Call your chat function
+            startChat(); // Call your chat function
         } else {
             displayOfflineMessage();
         }
@@ -176,22 +176,22 @@
         chatStatus.textContent = 'We are currently offline. Please check back later.';
     }
 
- function launchChat() {
-           embeddedservice_bootstrap.utilAPI.launchChat()
-               .then(() => {
-                   console.log(
-                       'Successfully launched Messaging'
-                   );
-               }).catch(() => {
-                   console.log(
-                       'Some error occurred when launching Messaging'
-                   );
-               }).finally(() => {
-                   console.log(
-                       'Successfully launched Messaging - Finally'
-                   );
-               });
-       }
+	function startChat() {
+		embeddedservice_bootstrap.utilAPI.launchChat()
+			.then(() => {
+				console.log(
+					'Successfully launched Messaging'
+				);
+			}).catch(() => {
+				console.log(
+					'Some error occurred when launching Messaging'
+				);
+			}).finally(() => {
+				console.log(
+					'Successfully launched Messaging - Finally'
+				);
+			});
+	}
 </script>
 
 </body>
