@@ -173,7 +173,7 @@
 <div id="chatButtonLegend">
 <div id="chatButton" onclick="handleChatClick()">
     <div onclick="handleChatClick()">
-        <img src="chat.png" alt="Chat Icon"/>
+        <img src="../chat.png" alt="Chat Icon"/>
 		<span id="chatStatus">Online Chat*</span>
     </div>
 </div>
@@ -203,7 +203,7 @@
 
 		// Change the width of chatButton to fit the new message
 		const chatButton = document.getElementById('chatButton');
-		chatButton.style.width = 'auto'; // Set width to auto to fit content
+		chatButton.style.width = '230px'; // Set width to auto to fit content
 		chatButton.style.padding = '10px'; // Optional: add padding for better appearance
     }
 
