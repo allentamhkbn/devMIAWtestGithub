@@ -173,7 +173,7 @@
 <div id="chatButtonLegend">
 <div id="chatButton" onclick="handleChatClick()">
     <div onclick="handleChatClick()">
-        <img src="../chat.png" alt="Chat Icon"/>
+        <img src="../devMIAWtestGithub/chat.png" alt="Chat Icon"/>
 		<span id="chatStatus">Online Chat*</span>
     </div>
 </div>
