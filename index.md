@@ -48,9 +48,6 @@
 	#chatButton {
 		width: 180px;
 		height: 50px;
-		/*position: fixed;
-		bottom: 35px;
-		right: 35px;*/
 		border-radius: 8px 8px 0 0;
 		background: #0e3d6a;
 		cursor: pointer;
@@ -58,6 +55,18 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+	}
+	#chatButton {
+		min-width: 150px; /* Minimum width */
+		height: 50px; /* Fixed height */
+		border-radius: 8px 8px 0 0;
+		background: #0e3d6a;
+		cursor: pointer;
+		color: white;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		transition: width 0.3s ease; /* Smooth transition for width change */
 	}
     #chatButton:hover {
         background: #ff7a36;
@@ -164,7 +173,7 @@
 <div id="chatButtonLegend">
 <div id="chatButton" onclick="handleChatClick()">
     <div onclick="handleChatClick()">
-        <img src="chat.png"/>
+        <img src="chat.png" alt="Chat Icon"/>
 		<span id="chatStatus">Online Chat*</span>
     </div>
 </div>
@@ -191,6 +200,11 @@
     function displayOfflineMessage() {
         const chatStatus = document.getElementById('chatStatus');
         chatStatus.textContent = 'We are currently offline. Please check back later.';
+
+		// Change the width of chatButton to fit the new message
+		const chatButton = document.getElementById('chatButton');
+		chatButton.style.width = 'auto'; // Set width to auto to fit content
+		chatButton.style.padding = '10px'; // Optional: add padding for better appearance
     }
 
 	function startChat() {
