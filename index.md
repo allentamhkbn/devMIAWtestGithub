@@ -46,27 +46,45 @@
 		outline: 1px solid #F36F21;
     }
 	#chatButton {
-        position: fixed;
-        bottom: 35px;
-        right: 35px;
-        border-radius: 40px;
-        background: #064273; /* Initial background color */
-        cursor: pointer;
-        color: white;
-    }
-
+		width: 180px;
+		height: 50px;
+		/*position: fixed;
+		bottom: 35px;
+		right: 35px;*/
+		border-radius: 8px 8px 0 0;
+		background: #0e3d6a;
+		cursor: pointer;
+		color: white;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
     #chatButton:hover {
-        background: #ff7912; /* Background color on hover */
+        background: #ff7a36;
     }
-
-    #chatContent {
-        display: flex;
-        align-items: center; /* Center items vertically */
-    }
-
     #chatStatus {
-        margin-left: 10px; /* Space between image and text */
+		font-size: 14px;
     }
+	#chatButton img {
+		margin-right: 8px;
+		height: 24px;
+		border-radius: 50%;
+	}
+	#chatButtonLegend {
+		position: relative;
+        margin-bottom: 00%;
+        margin-left: 80%;
+        cursor: pointer;
+	}
+	#chatButtonAdditionalText {
+		font-size: 14px;
+	}
+	.st_info{
+		position: relative;
+		margin-left: 0%;
+		white-space: nowrap;
+		font-size:14px;
+	}
 </style>
 
 
@@ -143,17 +161,16 @@
 </script>
 <script type='text/javascript' src='https://hkbn--devmiaw.sandbox.my.site.com/ESWmiawDemo1728371866859/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 
-<!--<div id="chatButton" style="position: fixed; bottom: 35px; right: 35px; border-radius: 40px; background: #064273; cursor: pointer; color: white;">-->
+<div id="chatButtonLegend">
 <div id="chatButton" onclick="handleChatClick()">
     <div onclick="handleChatClick()">
-        <img 
-            src="https://uates-online.hkbn.net/myaccount/res/images/login/logo.jpg"
-            style="border-radius: 50%; float:left; margin: 5px;"
-            height="50px"
-            width="50px"/>
-        <h3 id="chatStatus" style="float:right;">Hi, How can I help you?</h3>
+        <img src="chat.png"/>
+		<span id="chatStatus">Online Chat*</span>
     </div>
 </div>
+	<div id="chatButtonAdditionalText" class="st_info">Service hours: 0900-2100<br>Or <a href="https://www.hkbnes.net/web/en/support/contact-us?utm_campaign=contact_us&utm_source=myaccount_landing&utm_medium=referral" target="_blank">click here</a> to contact us</div>
+</div>
+
 
 <script>
     function isWithinBusinessHours() {
