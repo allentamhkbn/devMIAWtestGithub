@@ -118,9 +118,9 @@
 	}
     
 	function initEmbeddedMessaging() {
-	if (embedded_svc.menu) {
+	if (window.embedded_svc.menu) {
 			embedded_svc.menu.onAgentAvailabilityChange();
-			console.log("embedded_svc.menu.onAgentAvailabilityChange()",embedded_svc.menu)
+			console.log("embedded_svc.menu.onAgentAvailabilityChange()",window.embedded_svc.menu)
 		}
 		
 		window.addEventListener(
