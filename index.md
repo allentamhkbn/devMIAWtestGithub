@@ -263,16 +263,16 @@
 		embedded_svc.settings.entryFeature = 'LiveAgent';
 
 		embedded_svc.init(
-			'https://hkbn--devmiaw.sandbox.my.salesforce.com',
-			'https://hkbn--devmiaw.sandbox.my.site.com/survey',
+			'https://hkbn--devallen.sandbox.my.salesforce.com',
+			'https://hkbn--devallen.sandbox.my.site.com/survey',
 			gslbBaseURL,
-			'00DHz0000003j20',
+			'00D1e0000000pRK',
 			'ChatGroup',
 			{
-				baseLiveAgentContentURL: 'https://c.la1-c1cs-it3.salesforceliveagent.com/content',
+				baseLiveAgentContentURL: 'https://c.la1-c1cs-hn4.salesforceliveagent.com/content',
 				deploymentId: '5727F000000HGqQ',
 				buttonId: '5737F000000HCqZ',
-				baseLiveAgentURL: 'https://d.la1-c1cs-it3.salesforceliveagent.com/chat',
+				baseLiveAgentURL: 'https://d.la1-c1cs-hn4.salesforceliveagent.com/chat',
 				eswLiveAgentDevName: 'ChatGroup',
 				isOfflineSupportEnabled: false
 			}
@@ -281,7 +281,7 @@
 
 	if (!window.embedded_svc) {
 		var s = document.createElement('script');
-		s.setAttribute('src', 'https://hkbn--devmiaw.sandbox.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+		s.setAttribute('src', 'https://hkbn--devallen.sandbox.my.salesforce.com/embeddedservice/5.0/esw.min.js');
 		s.onload = function() {
 			initESW(null);
 		};
