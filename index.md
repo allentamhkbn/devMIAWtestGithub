@@ -46,27 +46,54 @@
 		outline: 1px solid #F36F21;
     }
 	#chatButton {
-        position: fixed;
-        bottom: 35px;
-        right: 35px;
-        border-radius: 40px;
-        background: #064273; /* Initial background color */
-        cursor: pointer;
-        color: white;
-    }
-
+		width: 180px;
+		height: 50px;
+		border-radius: 8px 8px 0 0;
+		background: #0e3d6a;
+		cursor: pointer;
+		color: white;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	#chatButton {
+		min-width: 150px; /* Minimum width */
+		height: 50px; /* Fixed height */
+		border-radius: 8px 8px 0 0;
+		background: #0e3d6a;
+		cursor: pointer;
+		color: white;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		transition: width 0.3s ease; /* Smooth transition for width change */
+	}
     #chatButton:hover {
-        background: #ff7912; /* Background color on hover */
+        background: #ff7a36;
     }
-
-    #chatContent {
-        display: flex;
-        align-items: center; /* Center items vertically */
-    }
-
     #chatStatus {
-        margin-left: 10px; /* Space between image and text */
+		font-size: 14px;
     }
+	#chatButton img {
+		margin-right: 8px;
+		height: 24px;
+		border-radius: 50%;
+	}
+	#chatButtonLegend {
+		position: relative;
+        margin-bottom: 00%;
+        margin-left: 80%;
+        cursor: pointer;
+	}
+	#chatButtonAdditionalText {
+		font-size: 14px;
+	}
+	.st_info{
+		position: relative;
+		margin-left: 0%;
+		white-space: nowrap;
+		font-size:14px;
+	}
 </style>
 
 
@@ -143,17 +170,16 @@
 </script>
 <script type='text/javascript' src='https://hkbn--devallen.sandbox.my.site.com/ESWTest202411281732760340131/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 
-<!--<div id="chatButton" style="position: fixed; bottom: 35px; right: 35px; border-radius: 40px; background: #064273; cursor: pointer; color: white;">-->
+<div id="chatButtonLegend">
 <div id="chatButton" onclick="handleChatClick()">
     <div onclick="handleChatClick()">
-        <img 
-            src="https://uates-online.hkbn.net/myaccount/res/images/login/logo.jpg"
-            style="border-radius: 50%; float:left; margin: 5px;"
-            height="50px"
-            width="50px"/>
-        <h3 id="chatStatus" style="float:right;">Hi, How can I help you?</h3>
+        <img src="../devMIAWtestGithub/chat.png" alt="Chat Icon"/>
+		<span id="chatStatus">Online Chat*</span>
     </div>
 </div>
+	<div id="chatButtonAdditionalText" class="st_info">Service hours: 0900-2100<br>Or <a href="https://www.hkbnes.net/web/en/support/contact-us?utm_campaign=contact_us&utm_source=myaccount_landing&utm_medium=referral" target="_blank">click here</a> to contact us</div>
+</div>
+
 
 <script>
     function isWithinBusinessHours() {
@@ -165,7 +191,7 @@
 
     function handleChatClick() {
         if (isWithinBusinessHours()) {
-            launchChat(); // Call your chat function
+            startChat(); // Call your chat function
         } else {
             displayOfflineMessage();
         }
@@ -174,24 +200,95 @@
     function displayOfflineMessage() {
         const chatStatus = document.getElementById('chatStatus');
         chatStatus.textContent = 'We are currently offline. Please check back later.';
+
+		// Change the width of chatButton to fit the new message
+		const chatButton = document.getElementById('chatButton');
+		chatButton.style.width = '230px'; // Set width to auto to fit content
+		chatButton.style.padding = '10px'; // Optional: add padding for better appearance
     }
 
- function launchChat() {
-           embeddedservice_bootstrap.utilAPI.launchChat()
-               .then(() => {
-                   console.log(
-                       'Successfully launched Messaging'
-                   );
-               }).catch(() => {
-                   console.log(
-                       'Some error occurred when launching Messaging'
-                   );
-               }).finally(() => {
-                   console.log(
-                       'Successfully launched Messaging - Finally'
-                   );
-               });
-       }
+	function startChat() {
+		embeddedservice_bootstrap.utilAPI.launchChat()
+			.then(() => {
+				console.log(
+					'Successfully launched Messaging'
+				);
+			}).catch(() => {
+				console.log(
+					'Some error occurred when launching Messaging'
+				);
+			}).finally(() => {
+				console.log(
+					'Successfully launched Messaging - Finally'
+				);
+			});
+	}
+</script>
+
+
+
+
+<style type='text/css'>
+	.embeddedServiceHelpButton .helpButton .uiButton {
+		background-color: #F36F21;
+		font-family: "Arial", sans-serif;
+	}
+	.embeddedServiceHelpButton .helpButton .uiButton:focus {
+		outline: 1px solid #F36F21;
+	}
+</style>
+
+<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+<script type='text/javascript'>
+	var initESW = function(gslbBaseURL) {
+		embedded_svc.settings.displayHelpButton = true; //Or false
+		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
+
+		//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
+		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
+
+		//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
+		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
+
+		// Settings for Chat
+		//embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
+			// Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
+			// Returns a valid button ID.
+		//};
+		//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
+		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
+		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
+
+		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+		embedded_svc.settings.entryFeature = 'LiveAgent';
+
+		embedded_svc.init(
+			'https://hkbn--devmiaw.sandbox.my.salesforce.com',
+			'https://hkbn--devmiaw.sandbox.my.site.com/survey',
+			gslbBaseURL,
+			'00DHz0000003j20',
+			'ChatGroup',
+			{
+				baseLiveAgentContentURL: 'https://c.la1-c1cs-it3.salesforceliveagent.com/content',
+				deploymentId: '5727F000000HGqQ',
+				buttonId: '5737F000000HCqZ',
+				baseLiveAgentURL: 'https://d.la1-c1cs-it3.salesforceliveagent.com/chat',
+				eswLiveAgentDevName: 'ChatGroup',
+				isOfflineSupportEnabled: false
+			}
+		);
+	};
+
+	if (!window.embedded_svc) {
+		var s = document.createElement('script');
+		s.setAttribute('src', 'https://hkbn--devmiaw.sandbox.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+		s.onload = function() {
+			initESW(null);
+		};
+		document.body.appendChild(s);
+	} else {
+		initESW('https://service.force.com');
+	}
 </script>
 
 </body>
