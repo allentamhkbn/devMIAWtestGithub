@@ -118,11 +118,6 @@
 	}
     
 	function initEmbeddedMessaging() {
-	if (window.embedded_svc.menu) {
-			embedded_svc.menu.onAgentAvailabilityChange();
-			console.log("embedded_svc.menu.onAgentAvailabilityChange()",window.embedded_svc.menu)
-		}
-		
 		window.addEventListener(
 			"onEmbeddedMessagingButtonClicked", () => {
 				const isAllowEdit = getIsAllowEdit();
