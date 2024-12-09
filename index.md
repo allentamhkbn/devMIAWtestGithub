@@ -56,18 +56,6 @@
 		justify-content: center;
 		align-items: center;
 	}
-	#chatButton {
-		min-width: 150px; /* Minimum width */
-		height: 50px; /* Fixed height */
-		border-radius: 8px 8px 0 0;
-		background: #0e3d6a;
-		cursor: pointer;
-		color: white;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		transition: width 0.3s ease; /* Smooth transition for width change */
-	}
     #chatButton:hover {
         background: #ff7a36;
     }
@@ -80,9 +68,9 @@
 		border-radius: 50%;
 	}
 	#chatButtonLegend {
-		position: relative;
-        margin-bottom: 00%;
-        margin-left: 80%;
+		position: fixed;
+        bottom: 20px;
+        right: 20px;
         cursor: pointer;
 	}
 	#chatButtonAdditionalText {
