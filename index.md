@@ -56,44 +56,32 @@
 		justify-content: center;
 		align-items: center;
 	}
-	#chatButton {
-		min-width: 150px; /* Minimum width */
-		height: 50px; /* Fixed height */
-		border-radius: 8px 8px 0 0;
-		background: #0e3d6a;
-		cursor: pointer;
-		color: white;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		transition: width 0.3s ease; /* Smooth transition for width change */
-	}
     #chatButton:hover {
         background: #ff7a36;
     }
     #chatStatus {
+	font-size: 14px;
+    }
+    #chatButton img {
+	margin-right: 8px;
+	height: 24px;
+	border-radius: 50%;
+    }
+    #chatButtonLegend {
+	position: fixed;
+        bottom: 20px;
+        right: 20px;
+        cursor: pointer;
+    }
+    #chatButtonAdditionalText {
 		font-size: 14px;
     }
-	#chatButton img {
-		margin-right: 8px;
-		height: 24px;
-		border-radius: 50%;
-	}
-	#chatButtonLegend {
-		position: relative;
-        margin-bottom: 00%;
-        margin-left: 80%;
-        cursor: pointer;
-	}
-	#chatButtonAdditionalText {
-		font-size: 14px;
-	}
-	.st_info{
-		position: relative;
-		margin-left: 0%;
-		white-space: nowrap;
-		font-size:14px;
-	}
+    .st_info{
+	position: relative;
+	margin-left: 0%;
+	white-space: nowrap;
+	font-size:14px;
+    }
 </style>
 
 
@@ -173,7 +161,6 @@
 <div id="chatButtonLegend">
 <div id="chatButton" onclick="handleChatClick()">
     <div onclick="handleChatClick()">
-        <img src="../devMIAWtestGithub/chat.png" alt="Chat Icon"/>
 		<span id="chatStatus">Online Chat*</span>
     </div>
 </div>
