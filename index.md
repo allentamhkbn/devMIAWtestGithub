@@ -107,7 +107,7 @@
     
 	function initEmbeddedMessaging() {
 		window.addEventListener(
-			"onEmbeddedMessagingReady", () => {
+			"onEmbeddedMessagingPreChatLoaded", () => {
 				const isAllowEdit = getIsAllowEdit();
 				embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
 				"isLogin": !isAllowEdit,
