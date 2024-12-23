@@ -220,7 +220,7 @@
 
  function getOnlineAgentStatus() {
 		// Define the API endpoint
-		const apiUrl = 'https://192.168.170.152:8443/api/sys/sfdc/v1/messaging/onlineAgentStatus';
+		const apiUrl = 'https://192.168.170.152:8082/api/sys/sfdc/v1/messaging/onlineAgentStatus';
 
 		// Create the payload to send
 		const payload = {
