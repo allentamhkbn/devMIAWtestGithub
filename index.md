@@ -21,6 +21,8 @@
         <option value="true" selected>True</option>
         <option value="false">False</option>
     </select>
+	<br/>
+	<button id="checkAgentStatusButton" onclick="getAgentStatus()">Check Agent Status</button>
 </fieldset>
 <br/>
 
@@ -169,6 +171,11 @@
 
 
 <script>
+	function getAgentStatus(){
+		const hasOnlineAgent = getOnlineAgentStatus();
+		updateButtonWithOnlineAgentStatus(hasOnlineAgent);
+	}
+	
     function isWithinBusinessHours() {
         const now = new Date();
         const hours = now.getHours();
@@ -209,6 +216,58 @@
 					'Successfully launched Messaging - Finally'
 				);
 			});
+	}
+
+ function getOnlineAgentStatus() {
+		// Define the API endpoint
+		const apiUrl = 'https://192.168.170.152:8443/api/sys/sfdc/v1/messaging/onlineAgentStatus';
+
+		// Create the payload to send
+		const payload = {
+		"action":"SELECT",
+			"parameter":{
+				"start": 0,
+				"size": 1000
+			}
+		};
+
+		// Define your username and password for Basic Auth
+		const username = '86c16a15c54e4f3db823f4d7b4126542';
+		const password = 'c2F939d1b4864Fde9889235555AC18A4';
+		// Encode the username and password in Base64
+		const credentials = btoa(`${username}:${password}`);
+
+		const headers= {
+			'Content-Type': 'application/json',
+			'Authorization': `Basic ${credentials}`
+		};
+
+		console.log("Request Method: POST");
+		console.log("Request URL:", apiUrl);
+		console.log("Request Headers:", headers);
+		console.log("Request Payload:", JSON.stringify(payload));
+
+		// Send POST request using Fetch API
+		fetch(apiUrl, {
+			method: 'POST',
+			headers: headers,
+			body: JSON.stringify(payload)
+		})
+		.then(response => {
+			if (!response.ok) {
+				throw new Error('Network response was not ok');
+			}
+			return response.json(); // Parse JSON response
+		})
+		.then(data => {
+			// Access the "hasOnlineAgent" value from the response
+			console.log("Response:", data);
+			console.log("hasOnlineAgent:", data.hasOnlineAgent);
+		return data.hasOnlineAgent;
+		})
+		.catch(error => {
+			console.error('Error:', error);
+		});
 	}
 </script>
 
