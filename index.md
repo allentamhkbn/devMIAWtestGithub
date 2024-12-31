@@ -106,9 +106,19 @@
 		// Convert string to boolean
 		return (selectedValue === 'true' || selectedValue === true);
 	}
+
+	function getAgentStatus(){
+		const hasOnlineAgent = getOnlineAgentStatus();
+		updateButtonWithOnlineAgentStatus(hasOnlineAgent);
+	}
     
 	function initEmbeddedMessaging() {
 		window.addEventListener(
+			"onEmbeddedMessagingReady", () => {
+				//const hasOnlineAgent = getOnlineAgentStatus();
+				//updateButtonWithOnlineAgentStatus(hasOnlineAgent);
+			},
+		
 			"onEmbeddedMessagingPreChatLoaded", () => {
 				const isAllowEdit = getIsAllowEdit();
 				embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
@@ -169,12 +179,14 @@
 	<div id="chatButtonAdditionalText" class="st_info">Service hours: 0900-2100<br>Or <a href="https://www.hkbnes.net/web/en/support/contact-us?utm_campaign=contact_us&utm_source=myaccount_landing&utm_medium=referral" target="_blank">click here</a> to contact us</div>
 </div>
 
-
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"/>
 <script>
-	function getAgentStatus(){
-		const hasOnlineAgent = getOnlineAgentStatus();
-		updateButtonWithOnlineAgentStatus(hasOnlineAgent);
-	}
+
+    function updateButtonWithOnlineAgentStatus(status) {
+	    if (!status) {
+            displayOfflineMessage();
+        }
+    }
 	
     function isWithinBusinessHours() {
         const now = new Date();
@@ -218,7 +230,7 @@
 			});
 	}
 
- function getOnlineAgentStatus() {
+	function getOnlineAgentStatus() {
 		// Define the API endpoint
 		const apiUrl = 'https://192.168.170.152:8082/api/sys/sfdc/v1/messaging/onlineAgentStatus';
 
@@ -247,7 +259,7 @@
 		console.log("Request Headers:", headers);
 		console.log("Request Payload:", JSON.stringify(payload));
 
-		// Send POST request using Fetch API
+		/*// Send POST request using Fetch API
 		fetch(apiUrl, {
 			method: 'POST',
 			headers: headers,
@@ -264,6 +276,25 @@
 			console.log("Response:", data);
 			console.log("hasOnlineAgent:", data.hasOnlineAgent);
 		return data.hasOnlineAgent;
+		})
+		.catch(error => {
+			console.error('Error:', error);
+		});*/
+
+		// Create an HTTPS agent that ignores SSL certificate errors
+		const agent = new https.Agent({
+			rejectUnauthorized: false // Bypass SSL certificate validation
+		});
+	
+		// Send POST request using Axios with custom agent
+		axios.post(apiUrl, payload, {
+			headers: headers,
+			httpsAgent: agent // Use the custom agent here
+		})
+		.then(response => {
+			console.log("Response:", response.data);
+			console.log("hasOnlineAgent:", response.data.hasOnlineAgent);
+			return response.data.hasOnlineAgent;
 		})
 		.catch(error => {
 			console.error('Error:', error);
