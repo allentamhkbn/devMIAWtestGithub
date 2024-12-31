@@ -86,7 +86,18 @@
     }
 </style>
 
+<div id="chatButtonLegend">
+	<div id="chatButton" onclick="handleChatClick()">
+		<div onclick="handleChatClick()">
+			<span id="chatStatus">Online Chat*</span>
+		</div>
+	</div>
+		<div id="chatButtonAdditionalText" class="st_info">Service hours: 0900-2100<br>Or <a href="https://www.hkbnes.net/web/en/support/contact-us?utm_campaign=contact_us&utm_source=myaccount_landing&utm_medium=referral" target="_blank">click here</a> to contact us</div>
+</div>
 
+
+<script type='text/javascript' src='https://hkbn--devmiaw.sandbox.my.site.com/ESWmiawDemo1728371866859/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"/>
 <script type='text/javascript'>
 
 	function getIsAllowEdit() {
@@ -167,20 +178,6 @@
 			console.error('Error loading Embedded Messaging: ', err);
 		}
 	};
-</script>
-<script type='text/javascript' src='https://hkbn--devmiaw.sandbox.my.site.com/ESWmiawDemo1728371866859/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
-
-<div id="chatButtonLegend">
-<div id="chatButton" onclick="handleChatClick()">
-    <div onclick="handleChatClick()">
-		<span id="chatStatus">Online Chat*</span>
-    </div>
-</div>
-	<div id="chatButtonAdditionalText" class="st_info">Service hours: 0900-2100<br>Or <a href="https://www.hkbnes.net/web/en/support/contact-us?utm_campaign=contact_us&utm_source=myaccount_landing&utm_medium=referral" target="_blank">click here</a> to contact us</div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"/>
-<script>
 
     function updateButtonWithOnlineAgentStatus(status) {
 	    if (!status) {
