@@ -3,6 +3,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Option</title>
+	<script type='text/javascript' src='https://hkbnd-devmiaw.sandbox.my.site.com/ESWmiawDemo1728371866859/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
 
@@ -96,8 +98,8 @@
 </div>
 
 
-<script type='text/javascript' src='https://hkbn--devmiaw.sandbox.my.site.com/ESWmiawDemo1728371866859/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"/>
+<!--<script type='text/javascript' src='https://hkbn-d-devmiaw.sandbox.my.site.com/ESWmiawDemo1728371866859/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>-->
 <script type='text/javascript'>
 
 	function getIsAllowEdit() {
@@ -279,14 +281,11 @@
 		});*/
 
 		// Create an HTTPS agent that ignores SSL certificate errors
-		const agent = new https.Agent({
-			rejectUnauthorized: false // Bypass SSL certificate validation
-		});
+		
 	
 		// Send POST request using Axios with custom agent
 		axios.post(apiUrl, payload, {
-			headers: headers,
-			httpsAgent: agent // Use the custom agent here
+			headers: headers
 		})
 		.then(response => {
 			console.log("Response:", response.data);
