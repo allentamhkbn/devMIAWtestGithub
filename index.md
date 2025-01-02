@@ -128,8 +128,8 @@
 	function initEmbeddedMessaging() {
 		window.addEventListener(
 			"onEmbeddedMessagingReady", () => {
-				//const hasOnlineAgent = getOnlineAgentStatus();
-				//updateButtonWithOnlineAgentStatus(hasOnlineAgent);
+				const hasOnlineAgent = getOnlineAgentStatus();
+				updateButtonWithOnlineAgentStatus(hasOnlineAgent);
 			},
 		
 			"onEmbeddedMessagingPreChatLoaded", () => {
