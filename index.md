@@ -98,8 +98,8 @@
 </div>
 
 
-<script type='text/javascript' src='https://hkbn--devmiaw.sandbox.my.site.com/ESWmiawDemo1728371866859/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<!--<script type='text/javascript' src='https://hkbn--devmiaw.sandbox.my.site.com/ESWmiawDemo1728371866859/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>-->
 <script type='text/javascript'>
 
 	function getIsAllowEdit() {
