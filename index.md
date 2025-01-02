@@ -256,7 +256,8 @@
 		console.log("Request URL:", apiUrl);
 		console.log("Request Headers:", headers);
 		console.log("Request Payload:", JSON.stringify(payload));
-	
+
+	    	/*
 		// Send POST request using Axios with custom agent
 		axios.post(apiUrl, payload, {
 			headers: headers
@@ -270,11 +271,20 @@
 			console.error('Error:', error);
 			return false;
 		});
+  		*/
+		    try {
+		        // Await the Axios call to ensure we get the response
+		        const response = await axios.post(apiUrl, payload, { headers });
+		        console.log("Response:", response.data);
+		        
+		        // Return the hasOnlineAgent status
+		        return response.data.hasOnlineAgent; 
+		        
+		    } catch (error) {
+		        console.error('Error:', error);
+		        return false; // Return false in case of an error
+		    }
 	}
-
-	(async () => {
-		await updateButtonWithOnlineAgentStatus();
-	})();
 </script>
 <script type='text/javascript' src='https://hkbn--devmiaw.sandbox.my.site.com/ESWmiawDemo1728371866859/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
