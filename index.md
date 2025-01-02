@@ -208,8 +208,8 @@
 
 		// Change the width of chatButton to fit the new message
 		const chatButton = document.getElementById('chatButton');
-		chatButton.style.width = '230px'; // Set width to auto to fit content
-		chatButton.style.padding = '10px'; // Optional: add padding for better appearance
+		//chatButton.style.width = '230px'; // Set width to auto to fit content
+		//chatButton.style.padding = '10px'; // Optional: add padding for better appearance
 	    	chatButton.style.pointerEvents = "none"; // Disable clicking
     }
 
