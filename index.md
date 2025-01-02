@@ -3,8 +3,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Option</title>
-	<!--<script type='text/javascript' src='https://hkbn--devmiaw.sandbox.my.site.com/ESWmiawDemo1728371866859/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
-	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>-->
 </head>
 <body>
 
@@ -31,13 +29,11 @@
 <fieldset>
     <legend>User Information:</legend>
     <label for="fnameInput">First name:</label>
-    <input type="text" id="fnameInput" name="fnameInput" disabled="true" value="testFirstname"><br><br>
+    <input type="text" id="fnameInput" name="fnameInput" value="Holly"><br><br>
     <label for="lnameInput">Last name:</label>
-    <input type="text" id="lnameInput" name="lnameInput" disabled="true" value="testLastname"><br><br>
-    <label for="emailInput">Email:</label>
-    <input type="email" id="emailInput" name="emailInput" disabled="true" value="testEmail@email.com"><br><br>
+    <input type="text" id="lnameInput" name="lnameInput" value="Wong"><br><br>
 	<label for="AccNoInput">Account No./ User Name:</label>
-    <input type="text" id="AccNoInput" name="AccNoInput" value="123456"><br><br>
+    <input type="text" id="AccNoInput" name="AccNoInput" value="025114205"><br><br>
 </fieldset>
 
 <div id="chatButtonLegend">
@@ -141,10 +137,6 @@
 				},
 				"_lastName": {
 					"value": isAllowEdit?'':lnameInput.value,
-					"isEditableByEndUser": isAllowEdit,
-				},
-				"_email": {
-					"value": isAllowEdit?'':emailInput.value,
 					"isEditableByEndUser": isAllowEdit,
 				},
 				"Account No./ User Name": {
