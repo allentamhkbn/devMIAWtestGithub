@@ -228,7 +228,7 @@
 			});
 	}
 
-	function getOnlineAgentStatus() {
+    async function getOnlineAgentStatus() {
 		// Define the API endpoint
 		const apiUrl = 'https://192.168.170.152:8082/api/sys/sfdc/v1/messaging/onlineAgentStatus';
 
@@ -271,6 +271,10 @@
 			return false;
 		});
 	}
+
+	(async () => {
+		await updateButtonWithOnlineAgentStatus();
+	})();
 </script>
 <script type='text/javascript' src='https://hkbn--devmiaw.sandbox.my.site.com/ESWmiawDemo1728371866859/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
