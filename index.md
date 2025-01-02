@@ -179,8 +179,9 @@
 		}
 	};
 
-    function updateButtonWithOnlineAgentStatus(status) {
-	    if (!status) {
+   async function updateButtonWithOnlineAgentStatus() {
+		const hasOnlineAgent = await getOnlineAgentStatus();
+	    if (!hasOnlineAgent) {
             displayOfflineMessage();
         }
     }
@@ -255,31 +256,6 @@
 		console.log("Request URL:", apiUrl);
 		console.log("Request Headers:", headers);
 		console.log("Request Payload:", JSON.stringify(payload));
-
-		/*// Send POST request using Fetch API
-		fetch(apiUrl, {
-			method: 'POST',
-			headers: headers,
-			body: JSON.stringify(payload)
-		})
-		.then(response => {
-			if (!response.ok) {
-				throw new Error('Network response was not ok');
-			}
-			return response.json(); // Parse JSON response
-		})
-		.then(data => {
-			// Access the "hasOnlineAgent" value from the response
-			console.log("Response:", data);
-			console.log("hasOnlineAgent:", data.hasOnlineAgent);
-		return data.hasOnlineAgent;
-		})
-		.catch(error => {
-			console.error('Error:', error);
-		});*/
-
-		// Create an HTTPS agent that ignores SSL certificate errors
-		
 	
 		// Send POST request using Axios with custom agent
 		axios.post(apiUrl, payload, {
@@ -292,6 +268,7 @@
 		})
 		.catch(error => {
 			console.error('Error:', error);
+			return false;
 		});
 	}
 </script>
