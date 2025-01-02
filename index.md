@@ -40,6 +40,14 @@
     <input type="text" id="AccNoInput" name="AccNoInput" value="123456"><br><br>
 </fieldset>
 
+<div id="chatButtonLegend">
+	<div id="chatButton" onclick="handleChatClick()">
+		<div onclick="handleChatClick()">
+			<span id="chatStatus">Online Chat*</span>
+		</div>
+	</div>
+		<div id="chatButtonAdditionalText" class="st_info">Service hours: 0900-2100<br>Or <a href="https://www.hkbnes.net/web/en/support/contact-us?utm_campaign=contact_us&utm_source=myaccount_landing&utm_medium=referral" target="_blank">click here</a> to contact us</div>
+</div>
 
 <style type='text/css'>
 	.embeddedMessagingConversationButton {
@@ -88,16 +96,6 @@
     }
 </style>
 
-<div id="chatButtonLegend">
-	<div id="chatButton" onclick="handleChatClick()">
-		<div onclick="handleChatClick()">
-			<span id="chatStatus">Online Chat*</span>
-		</div>
-	</div>
-		<div id="chatButtonAdditionalText" class="st_info">Service hours: 0900-2100<br>Or <a href="https://www.hkbnes.net/web/en/support/contact-us?utm_campaign=contact_us&utm_source=myaccount_landing&utm_medium=referral" target="_blank">click here</a> to contact us</div>
-</div>
-
-
 <script type='text/javascript'>
 
 	function getIsAllowEdit() {
@@ -105,7 +103,6 @@
 		const selectedValue = selectElement.value;
 		console.log("getIsAllowEdit.isLogin: ", selectedValue);
 		
-		// Convert string to boolean
 		return !(selectedValue === 'true' || selectedValue === true);
 	}
 
@@ -114,7 +111,6 @@
 		const selectedValue = selectElement.value;
 		console.log("getIsBusinessHour.isBusinessHour: ", selectedValue);
 		
-		// Convert string to boolean
 		return (selectedValue === 'true' || selectedValue === true);
 	}
 
@@ -124,13 +120,13 @@
 	}
     
 	function initEmbeddedMessaging() {
-		window.addEventListener(
-			"onEmbeddedMessagingReady", () => {
-				const hasOnlineAgent = getOnlineAgentStatus();
-				updateButtonWithOnlineAgentStatus(hasOnlineAgent);
-			},
+			window.addEventListener("onEmbeddedMessagingReady", async () => {
+                const hasOnlineAgent = await getOnlineAgentStatus();
+                updateButtonWithOnlineAgentStatus(hasOnlineAgent);
+            });
 		
-			"onEmbeddedMessagingPreChatLoaded", () => {
+			window.addEventListener("onEmbeddedMessagingPreChatLoaded", () => {
+				console.log("prechat loaded");
 				const isAllowEdit = getIsAllowEdit();
 				embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
 				"isLogin": !isAllowEdit,
@@ -204,13 +200,14 @@
     function displayOfflineMessage() {
         const chatStatus = document.getElementById('chatStatus');
         //chatStatus.textContent = 'We are currently offline. Please check back later.';
-	chatStatus.textContent = 'Online Chat* (Offline)';
+		chatStatus.textContent = 'Online Chat* (Offline)';
+
 
 		// Change the width of chatButton to fit the new message
 		const chatButton = document.getElementById('chatButton');
 		//chatButton.style.width = '230px'; // Set width to auto to fit content
 		//chatButton.style.padding = '10px'; // Optional: add padding for better appearance
-	    	chatButton.style.pointerEvents = "none"; // Disable clicking
+	    chatButton.style.pointerEvents = "none"; // Disable clicking
     }
 
 	function startChat() {
@@ -259,21 +256,6 @@
 		console.log("Request Headers:", headers);
 		console.log("Request Payload:", JSON.stringify(payload));
 
-	    	/*
-		// Send POST request using Axios with custom agent
-		axios.post(apiUrl, payload, {
-			headers: headers
-		})
-		.then(response => {
-			console.log("Response:", response.data);
-			console.log("hasOnlineAgent:", response.data.hasOnlineAgent);
-			return response.data.hasOnlineAgent;
-		})
-		.catch(error => {
-			console.error('Error:', error);
-			return false;
-		});
-  		*/
 		    try {
 		        // Await the Axios call to ensure we get the response
 		        const response = await axios.post(apiUrl, payload, { headers });
