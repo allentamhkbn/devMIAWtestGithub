@@ -203,7 +203,8 @@
 
     function displayOfflineMessage() {
         const chatStatus = document.getElementById('chatStatus');
-        chatStatus.textContent = 'We are currently offline. Please check back later.';
+        //chatStatus.textContent = 'We are currently offline. Please check back later.';
+	chatStatus.textContent = 'Online Chat* (Offline)';
 
 		// Change the width of chatButton to fit the new message
 		const chatButton = document.getElementById('chatButton');
