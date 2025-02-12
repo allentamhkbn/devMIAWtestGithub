@@ -206,25 +206,32 @@
     }
 
     function handleChatClick() {
+    console.log('handleChatClick() called');
     if (isWithinBusinessHours()) {
+        console.log('Within business hours');
+
         // 1. Gather the pre-chat data
         const prechatData = {
-            FirstName: fnameInput.value || '616',  // Get value from your input fields
-            LastName: lnameInput.value || 'ccc',
-            Email: emailInput.value || 'vvv',
+            FirstName: fnameInput.value || '',  // Get value from your input fields
+            LastName: lnameInput.value || '',
+            Email: emailInput.value || '',
             PPSno: AccNoInput.value || ''       // Assuming you want to include this too
             // Add any other pre-chat data you need to gather here
         };
 
+        console.log('Pre-chat data gathered:', prechatData);
+
         // 2. Dispatch the prechatdata event
         dispatchPrechatData(prechatData);
-
+	 console.log('dispatchPrechatData() called');
         // 3. Set other prechat fields (using your original function)
         setPf();  // Call the existing setPf function
-
+	console.log('setPf() called');
         // 4. Start the Chat
         startChat();
+	console.log('startChat() called');
     } else {
+        console.log('Outside business hours');
         displayOfflineMessage();
     }
 }
@@ -258,12 +265,15 @@
 
 
 function dispatchPrechatData(data) {
+    console.log('dispatchPrechatData() started, data:', data);
     const prechatDataEvent = new CustomEvent('prechatdata', {
-        bubbles: true, // Important: Allow the event to bubble up the DOM
-        composed: true, //  Allow event to pass through the shadow DOM boundary
-        detail: data // The data to send to the pre-chat form
+        bubbles: true,
+        composed: true,
+        detail: data
     });
-    document.dispatchEvent(prechatDataEvent); // Dispatch the event on the document
+    console.log('dispatchPrechatData() about to dispatch the event.');
+    document.dispatchEvent(prechatDataEvent);
+    console.log('dispatchPrechatData() finished');
 }
 
 
