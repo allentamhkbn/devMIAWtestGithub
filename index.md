@@ -179,7 +179,18 @@
 
     function handleChatClick() {
         if (isWithinBusinessHours()) {
-            startChat(); // Call your chat function
+            //startChat(); // Call your chat function
+	//20252012 1532
+		if (window.embeddedservice_bootstrap && window.embeddedservice_bootstrap.utilAPI) {
+			if (window.embeddedservice_bootstrap.utilAPI.dispatchEvent) {
+				window.embeddedservice_bootstrap.utilAPI.dispatchEvent('onEmbeddedMessagingButtonClicked', {});
+				startChat();
+			} else {
+				console.warn('embeddedservice_bootstrap.utilAPI.dispatchEvent is not available yet.');
+			}
+		} else {
+			console.warn('Salesforce Messaging for Web API is not ready.');
+		}
         } else {
             displayOfflineMessage();
         }
@@ -210,72 +221,6 @@
 					'Successfully launched Messaging - Finally'
 				);
 			});
-	}
-</script>
-
-
-
-
-<style type='text/css'>
-	.embeddedServiceHelpButton .helpButton .uiButton {
-		background-color: #F36F21;
-		font-family: "Arial", sans-serif;
-	}
-	.embeddedServiceHelpButton .helpButton .uiButton:focus {
-		outline: 1px solid #F36F21;
-	}
-</style>
-
-<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
-<script type='text/javascript'>
-	var initESW = function(gslbBaseURL) {
-		embedded_svc.settings.displayHelpButton = true; //Or false
-		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
-
-		//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
-		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
-
-		//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
-		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
-
-		// Settings for Chat
-		//embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
-			// Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
-			// Returns a valid button ID.
-		//};
-		//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
-		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
-		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
-
-		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
-		embedded_svc.settings.entryFeature = 'LiveAgent';
-
-		embedded_svc.init(
-			'https://hkbn--devallen.sandbox.my.salesforce.com',
-			'https://hkbn--devallen.sandbox.my.site.com/survey',
-			gslbBaseURL,
-			'00D1e0000000pRK',
-			'ChatGroup',
-			{
-				baseLiveAgentContentURL: 'https://c.la1-c1cs-hn4.salesforceliveagent.com/content',
-				deploymentId: '5727F000000HGqQ',
-				buttonId: '5737F000000HCqZ',
-				baseLiveAgentURL: 'https://d.la1-c1cs-hn4.salesforceliveagent.com/chat',
-				eswLiveAgentDevName: 'ChatGroup',
-				isOfflineSupportEnabled: false
-			}
-		);
-	};
-
-	if (!window.embedded_svc) {
-		var s = document.createElement('script');
-		s.setAttribute('src', 'https://hkbn--devallen.sandbox.my.salesforce.com/embeddedservice/5.0/esw.min.js');
-		s.onload = function() {
-			initESW(null);
-		};
-		document.body.appendChild(s);
-	} else {
-		initESW('https://service.force.com');
 	}
 </script>
 
