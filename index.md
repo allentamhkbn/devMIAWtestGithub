@@ -227,6 +227,14 @@
     }
 
 	function startChat() {
+		const prechatData = {
+		    FirstName: 'John',
+		    LastName: 'Doe',
+		    Email: 'john.doe@example.com'
+		};
+		
+		dispatchPrechatData(prechatData);
+		
 		embeddedservice_bootstrap.utilAPI.launchChat()
 			.then(() => {
 				console.log(
@@ -242,6 +250,18 @@
 				);
 			});
 	}
+
+
+function dispatchPrechatData(data) {
+    const prechatDataEvent = new CustomEvent('prechatdata', {
+        bubbles: true, // Important: Allow the event to bubble up the DOM
+        composed: true, //  Allow event to pass through the shadow DOM boundary
+        detail: data // The data to send to the pre-chat form
+    });
+    document.dispatchEvent(prechatDataEvent); // Dispatch the event on the document
+}
+
+
 </script>
 
 </body>
