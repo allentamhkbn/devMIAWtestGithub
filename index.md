@@ -206,15 +206,28 @@
     }
 
     function handleChatClick() {
-        if (isWithinBusinessHours()) {
-            //startChat(); // Call your chat function
-	//20252012 1532
-		setPf();
-		startChat();
-        } else {
-            displayOfflineMessage();
-        }
+    if (isWithinBusinessHours()) {
+        // 1. Gather the pre-chat data
+        const prechatData = {
+            FirstName: fnameInput.value || '616',  // Get value from your input fields
+            LastName: lnameInput.value || 'ccc',
+            Email: emailInput.value || 'vvv',
+            PPSno: AccNoInput.value || ''       // Assuming you want to include this too
+            // Add any other pre-chat data you need to gather here
+        };
+
+        // 2. Dispatch the prechatdata event
+        dispatchPrechatData(prechatData);
+
+        // 3. Set other prechat fields (using your original function)
+        setPf();  // Call the existing setPf function
+
+        // 4. Start the Chat
+        startChat();
+    } else {
+        displayOfflineMessage();
     }
+}
 
     function displayOfflineMessage() {
         const chatStatus = document.getElementById('chatStatus');
@@ -227,14 +240,6 @@
     }
 
 	function startChat() {
-		const prechatData = {
-		    FirstName: 'John',
-		    LastName: 'Doe',
-		    Email: 'john.doe@example.com'
-		};
-		
-		dispatchPrechatData(prechatData);
-		
 		embeddedservice_bootstrap.utilAPI.launchChat()
 			.then(() => {
 				console.log(
