@@ -104,6 +104,34 @@
 		// Convert string to boolean
 		return (selectedValue === 'true' || selectedValue === true);
 	}
+
+	fucntion setPf() {
+		const isAllowEdit = getIsAllowEdit();
+			embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+			"isLogin": !isAllowEdit,
+			"PPSno": AccNoInput.value,
+			});
+	
+	
+			embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
+			"_firstName": {
+				"value": isAllowEdit?'':fnameInput.value,
+				"isEditableByEndUser": isAllowEdit,
+			},
+			"_lastName": {
+				"value": isAllowEdit?'':lnameInput.value,
+				"isEditableByEndUser": isAllowEdit,
+			},
+			"_email": {
+				"value": isAllowEdit?'':emailInput.value,
+				"isEditableByEndUser": isAllowEdit,
+			},
+			"Account No./ User Name": {
+				"value": isAllowEdit?'':AccNoInput.value,
+				"isEditableByEndUser": isAllowEdit,
+			},
+		});
+	}
     
 	function initEmbeddedMessaging() {
 		window.addEventListener(
@@ -161,7 +189,6 @@
 <div id="chatButtonLegend">
 <div id="chatButton" onclick="handleChatClick()">
     <div onclick="handleChatClick()">
-        <img src="../devMIAWtestGithub/chat.png" alt="Chat Icon"/>
 		<span id="chatStatus">Online Chat*</span>
     </div>
 </div>
@@ -181,16 +208,8 @@
         if (isWithinBusinessHours()) {
             //startChat(); // Call your chat function
 	//20252012 1532
-		if (window.embeddedservice_bootstrap && window.embeddedservice_bootstrap.utilAPI) {
-			if (window.embeddedservice_bootstrap.utilAPI.dispatchEvent) {
-				window.embeddedservice_bootstrap.utilAPI.dispatchEvent('onEmbeddedMessagingButtonClicked', {});
-				startChat();
-			} else {
-				console.warn('embeddedservice_bootstrap.utilAPI.dispatchEvent is not available yet.');
-			}
-		} else {
-			console.warn('Salesforce Messaging for Web API is not ready.');
-		}
+		setPf();
+		startChat();
         } else {
             displayOfflineMessage();
         }
