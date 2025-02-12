@@ -1451,6 +1451,12 @@ if(checkIE){
         <option value="false" selected>False</option>
     </select>
 	<br/>
+    <label for="languageSelect">Select Language:</label>
+    <select id="languageSelect" name="isLogin" onchange="getLanguage()">
+        <option value="en_US">English</option>
+        <option value="tw" selected>Chinese</option>
+    </select>
+	<br/>
 	<label for="isWithinBusinessHourSelect">Is Business Hour:</label>
     <select id="isWithinBusinessHourSelect" name="isBusinessHour" onchange="getIsBusinessHour()">
         <option value="true" selected>True</option>
@@ -1537,6 +1543,14 @@ if(checkIE){
 		return !(selectedValue === 'true' || selectedValue === true);
 	}
 
+	function getLanguage() {
+		const selectElement = document.getElementById('languageSelect');
+		const selectedValue = selectElement.value;
+		console.log("getLanguage.languageSelect: ", selectedValue);
+		
+		return selectedValue;
+	}
+
 	function getIsBusinessHour() {
 		const selectElement = document.getElementById('isWithinBusinessHourSelect');
 		const selectedValue = selectElement.value;
@@ -1584,8 +1598,10 @@ if(checkIE){
 	
 	
 		try {
-			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+			//embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+			embeddedservice_bootstrap.settings.language = getLanguage();
 
+			
 			embeddedservice_bootstrap.settings.hideChatButtonOnLoad = true;
 
 			embeddedservice_bootstrap.init(
