@@ -105,7 +105,7 @@
 		return (selectedValue === 'true' || selectedValue === true);
 	}
 
-	fucntion setPf() {
+	function setPf() {
 		const isAllowEdit = getIsAllowEdit();
 			embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
 			"isLogin": !isAllowEdit,
