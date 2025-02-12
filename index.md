@@ -201,7 +201,8 @@
         const now = new Date();
         const hours = now.getHours();
         //return hours >= 9 && hours < 21; // 9 AM to 9 PM
-	    return getIsBusinessHour();
+	    //return getIsBusinessHour();
+	    return true;
     }
 
     function handleChatClick() {
