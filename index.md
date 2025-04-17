@@ -1454,13 +1454,6 @@ if(checkIE){
 </div>
 
 <style type='text/css'>
-	.embeddedMessagingConversationButton {
-		background-color: #F36F21;
-		font-family: "Arial", sans-serif;
-	}
-	.embeddedMessagingConversationButton:focus {
-		outline: 1px solid #F36F21;
-    }
 	#chatButton {
 		width: 180px;
 		height: 50px;
@@ -1476,33 +1469,27 @@ if(checkIE){
         background: #ff7a36;
     }
     #chatStatus {
-	font-size: 14px;
+	    font-size: 14px;
     }
     #chatButton img {
-	margin-right: 8px;
-	height: 24px;
-	border-radius: 50%;
+        margin-right: 8px;
+        height: 24px;
+        border-radius: 50%;
     }
     #chatButtonLegend {
-	position: relative;
-   	margin-left: 120%;
-	white-space: nowrap;
-	bottom: 130px !important;
+        position: relative;
+        margin-left: 120%;
+        white-space: nowrap;
+        bottom: 130px !important;
         cursor: pointer;
     }
     #chatButtonAdditionalText {
 		font-size: 14px;
     }
-    .st_info{
-	position: relative;
-	margin-left: 0%;
-	white-space: nowrap;
-	font-size:14px;
-    }
 </style>
 
 <script type='text/javascript'>
-
+/*
 	function getIsAllowEdit() {
 		const selectElement = document.getElementById('isLoginSelect');
 		const selectedValue = selectElement.value;
@@ -1526,6 +1513,7 @@ if(checkIE){
 		
 		return (selectedValue === 'true' || selectedValue === true);
 	}
+ */
 
 	function getAgentStatus(){
 		const hasOnlineAgent = getOnlineAgentStatus();
@@ -1533,43 +1521,39 @@ if(checkIE){
 	}
     
 	function initEmbeddedMessaging() {
-			window.addEventListener("onEmbeddedMessagingReady", async () => {
-                const hasOnlineAgent = await getOnlineAgentStatus();
-                updateButtonWithOnlineAgentStatus(hasOnlineAgent);
-            });
+        window.addEventListener("onEmbeddedMessagingReady", async () => {
+            const hasOnlineAgent = await getOnlineAgentStatus();
+            updateButtonWithOnlineAgentStatus(hasOnlineAgent);
+        });
 		
-			window.addEventListener("onEmbeddedMessagingPreChatLoaded", () => {
-				console.log("prechat loaded");
-				const isAllowEdit = getIsAllowEdit();
-				embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-				"isLogin": !isAllowEdit,
-				"PPSno": AccNoInput.value,
-				});
+        window.addEventListener("onEmbeddedMessagingPreChatLoaded", () => {
+            console.log("prechat loaded");
+            const isAllowEdit = getIsAllowEdit();
+            embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+            "isLogin": !isAllowEdit,
+            "PPSno": AccNoInput.value,
+            });
 
-
-				embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
-				"_firstName": {
-					"value": isAllowEdit?'':fnameInput.value,
-					"isEditableByEndUser": isAllowEdit,
-				},
-				"_lastName": {
-					"value": isAllowEdit?'':lnameInput.value,
-					"isEditableByEndUser": isAllowEdit,
-				},
-				"Account No./ User Name": {
-					"value": isAllowEdit?'':AccNoInput.value,
-					"isEditableByEndUser": isAllowEdit,
-				},
-			});
-			}
-		);
+            embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
+            "_firstName": {
+                "value": isAllowEdit?'':fnameInput.value,
+                "isEditableByEndUser": isAllowEdit,
+            },
+            "_lastName": {
+                "value": isAllowEdit?'':lnameInput.value,
+                "isEditableByEndUser": isAllowEdit,
+            },
+            "Account No./ User Name": {
+                "value": isAllowEdit?'':AccNoInput.value,
+                "isEditableByEndUser": isAllowEdit,
+            },
+            });
+        });
 	
 	
 		try {
 			embeddedservice_bootstrap.settings.language = config.language;
-			//embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
-			//embeddedservice_bootstrap.settings.language = 'zh_TW';
-
+			//embeddedservice_bootstrap.settings.language = 'en_US'; //embeddedservice_bootstrap.settings.language = 'zh_TW';
 			
 			embeddedservice_bootstrap.settings.hideChatButtonOnLoad = true;
 
@@ -1581,14 +1565,13 @@ if(checkIE){
 					scrt2URL: 'https://hkbn--devmiaw.sandbox.my.salesforce-scrt.com'
 				}
 			);
-
 		} catch (err) {
 			console.error('Error loading Embedded Messaging: ', err);
 		}
-	};
+	}
 
-   async function updateButtonWithOnlineAgentStatus() {
-		const hasOnlineAgent = await getOnlineAgentStatus();
+    async function updateButtonWithOnlineAgentStatus() {
+	    const hasOnlineAgent = await getOnlineAgentStatus();
 	    if (!hasOnlineAgent) {
             displayOfflineMessage();
         }
@@ -1597,13 +1580,13 @@ if(checkIE){
     function isWithinBusinessHours() {
         const now = new Date();
         const hours = now.getHours();
-        //return hours >= 9 && hours < 21; // 9 AM to 9 PM
-	    return getIsBusinessHour();
+        return hours >= 9 && hours < 21; // 9 AM to 9 PM
+	    //return getIsBusinessHour();
     }
 
     function handleChatClick() {
         if (isWithinBusinessHours()) {
-            startChat(); // Call your chat function
+            startChat();
         } else {
             displayOfflineMessage();
         }
@@ -1611,33 +1594,27 @@ if(checkIE){
 
     function displayOfflineMessage() {
         const chatStatus = document.getElementById('chatStatus');
-        //chatStatus.textContent = 'We are currently offline. Please check back later.';
-		chatStatus.textContent = 'Online Chat* (Offline)';
-
-
-		// Change the width of chatButton to fit the new message
-		const chatButton = document.getElementById('chatButton');
-		//chatButton.style.width = '230px'; // Set width to auto to fit content
-		//chatButton.style.padding = '10px'; // Optional: add padding for better appearance
-	    chatButton.style.pointerEvents = "none"; // Disable clicking
+        chatStatus.textContent = 'Online Chat* (Offline)';
+        const chatButton = document.getElementById('chatButton');
+    	chatButton.style.pointerEvents = "none"; // Disable clicking
     }
 
-	function startChat() {
-		embeddedservice_bootstrap.utilAPI.launchChat()
-			.then(() => {
-				console.log(
-					'Successfully launched Messaging'
-				);
-			}).catch(() => {
-				console.log(
-					'Some error occurred when launching Messaging'
-				);
-			}).finally(() => {
-				console.log(
-					'Successfully launched Messaging - Finally'
-				);
-			});
-	}
+    function startChat() {
+        embeddedservice_bootstrap.utilAPI.launchChat()
+        .then(() => {
+            console.log(
+                'Successfully launched Messaging'
+            );
+        }).catch(() => {
+            console.log(
+                'Some error occurred when launching Messaging'
+            );
+        }).finally(() => {
+            console.log(
+                'Successfully launched Messaging - Finally'
+            );
+        });
+   }
 
     async function getOnlineAgentStatus() {
 	    return true;
@@ -1670,18 +1647,14 @@ if(checkIE){
 		console.log("Request Headers:", headers);
 		console.log("Request Payload:", JSON.stringify(payload));
 
-		    try {
-		        // Await the Axios call to ensure we get the response
-		        const response = await axios.post(apiUrl, payload, { headers });
-		        console.log("Response:", response.data);
-		        
-		        // Return the hasOnlineAgent status
-		        return response.data.hasOnlineAgent; 
-		        
-		    } catch (error) {
-		        console.error('Error:', error);
-		        return false; // Return false in case of an error
-		    }
+        try {
+            const response = await axios.post(apiUrl, payload, { headers });
+            console.log("Response:", response.data);
+            return response.data.hasOnlineAgent; 
+        } catch (error) {
+            console.error('Error:', error);
+            return false;
+        }
 	}
 </script>
 <script type='text/javascript' src='https://hkbn--devmiaw.sandbox.my.site.com/ESWmiawDemo1728371866859/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
