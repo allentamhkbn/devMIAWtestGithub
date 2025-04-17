@@ -1523,7 +1523,7 @@ if(checkIE){
     }
     #chatButtonLegend {
 	position: relative;
-   	margin-left: 112.5%;
+   	margin-left: 120%;
 	white-space: nowrap;
 	bottom: 130px !important;
         cursor: pointer;
