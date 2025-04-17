@@ -1442,6 +1442,7 @@ if(checkIE){
 
 <!-- Popup for migrated account -->
 
+<!--
 <br/><br/><br/><br/>
 <h2>DEVMIAW Demo</h2>
 <br/>
@@ -1478,6 +1479,8 @@ if(checkIE){
 	<label for="AccNoInput">Account No./ User Name:</label>
     <input type="text" id="AccNoInput" name="AccNoInput" value="025114205"><br><br>
 </fieldset>
+
+-->
 
 <div id="chatButtonLegend">
 	<div id="chatButton" onclick="handleChatClick()">
