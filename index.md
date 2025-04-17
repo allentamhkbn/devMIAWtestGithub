@@ -1520,8 +1520,9 @@ if(checkIE){
     }
     #chatButtonLegend {
 	position: relative;
-        bottom: 20px;
-        right: 20px;
+   	margin-left: 112.5%;
+	white-space: nowrap;
+	bottom: 130px !important;
         cursor: pointer;
     }
     #chatButtonAdditionalText {
