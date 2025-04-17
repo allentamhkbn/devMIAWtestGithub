@@ -719,7 +719,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 	// 繁體中文參數
 	var config = {
-		language: 'zh-TW',
+		//language: 'zh-TW',
+		language: 'zh_TW',
 		online: '尋求幫助',
 		offline: '離線',
 		chatButtonId: '5737F000000HCqZ',
@@ -732,8 +733,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	var sysLang="e";
 	if(sysLang == "e"){
 		config = {
-			language: 'en-US',
-		    online: 'Online Chat*',
+			//language: 'en-US',
+		    	language: 'en_US',
+			online: 'Online Chat*',
 			offline: 'Online Chat* (Offline)',
 			chatButtonId: '5737F000000HCqa',
 			accountNoLabel: 'Account No./ User Name',
@@ -1598,8 +1600,9 @@ if(checkIE){
 	
 	
 		try {
+			embeddedservice_bootstrap.settings.language = config.language;
 			//embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
-			embeddedservice_bootstrap.settings.language = 'zh_TW';
+			//embeddedservice_bootstrap.settings.language = 'zh_TW';
 
 			
 			embeddedservice_bootstrap.settings.hideChatButtonOnLoad = true;
@@ -1672,8 +1675,9 @@ if(checkIE){
 
     async function getOnlineAgentStatus() {
 		// Define the API endpoint
-		const apiUrl = 'https://192.168.170.152:8082/api/sys/sfdc/v1/messaging/onlineAgentStatus';
-
+		//const apiUrl = 'https://192.168.170.152:8082/api/sys/sfdc/v1/messaging/onlineAgentStatus';
+		const apiUrl = 'https://muleapiuat.hkbn.com.hk/api/sys/sfdc/v1/messaging/onlineAgentStatus';
+	    
 		// Create the payload to send
 		const payload = {
 		"action":"SELECT",
