@@ -1442,7 +1442,7 @@ if(checkIE){
 
 <!-- Popup for migrated account -->
 
-
+<!-- MIAW START -->
 
 <div id="chatButtonLegend">
 	<div id="chatButton" onclick="handleChatClick()">
@@ -1450,45 +1450,8 @@ if(checkIE){
 			<span id="chatStatus">Online Chat*</span>
 		</div>
 	</div>
-		<div id="chatButtonAdditionalText" class="st_info">Service hours: 0900-2100<br>Or <a href="https://www.hkbnes.net/web/en/support/contact-us?utm_campaign=contact_us&utm_source=myaccount_landing&utm_medium=referral" target="_blank">click here</a> to contact us</div>
+		<div id="chatButtonAdditionalText">Service hours: 0900-2100<br>Or <a href="https://www.hkbnes.net/web/en/support/contact-us?utm_campaign=contact_us&utm_source=myaccount_landing&utm_medium=referral" target="_blank">click here</a> to contact us</div>
 </div>
-
-<br/><br/><br/><br/>
-<h2>DEVMIAW Demo</h2>
-<br/>
-<fieldset>
-    <legend>Is Login:</legend>
-    <label for="isLoginSelect">Select Login Option:</label>
-    <select id="isLoginSelect" name="isLogin" onchange="getIsAllowEdit()">
-        <option value="true">True</option>
-        <option value="false" selected>False</option>
-    </select>
-	<br/>
-    <label for="languageSelect">Select Language:</label>
-    <select id="languageSelect" name="isLogin" onchange="getLanguage()">
-        <option value="en_US">English</option>
-        <option value="tw" selected>Chinese</option>
-    </select>
-	<br/>
-	<label for="isWithinBusinessHourSelect">Is Business Hour:</label>
-    <select id="isWithinBusinessHourSelect" name="isBusinessHour" onchange="getIsBusinessHour()">
-        <option value="true" selected>True</option>
-        <option value="false">False</option>
-    </select>
-	<br/>
-	<button id="checkAgentStatusButton" onclick="getAgentStatus()">Check Agent Status</button>
-</fieldset>
-<br/>
-
-<fieldset>
-    <legend>User Information:</legend>
-    <label for="fnameInput">First name:</label>
-    <input type="text" id="fnameInput" name="fnameInput" value="Holly"><br><br>
-    <label for="lnameInput">Last name:</label>
-    <input type="text" id="lnameInput" name="lnameInput" value="Wong"><br><br>
-	<label for="AccNoInput">Account No./ User Name:</label>
-    <input type="text" id="AccNoInput" name="AccNoInput" value="025114205"><br><br>
-</fieldset>
 
 <style type='text/css'>
 	.embeddedMessagingConversationButton {
@@ -1725,7 +1688,45 @@ if(checkIE){
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 
+<!-- MIAW END -->
 
+
+<br/><br/><br/><br/>
+<h2>DEVMIAW Demo</h2>
+<br/>
+<fieldset>
+    <legend>Is Login:</legend>
+    <label for="isLoginSelect">Select Login Option:</label>
+    <select id="isLoginSelect" name="isLogin" onchange="getIsAllowEdit()">
+        <option value="true">True</option>
+        <option value="false" selected>False</option>
+    </select>
+	<br/>
+    <label for="languageSelect">Select Language:</label>
+    <select id="languageSelect" name="isLogin" onchange="getLanguage()">
+        <option value="en_US">English</option>
+        <option value="tw" selected>Chinese</option>
+    </select>
+	<br/>
+	<label for="isWithinBusinessHourSelect">Is Business Hour:</label>
+    <select id="isWithinBusinessHourSelect" name="isBusinessHour" onchange="getIsBusinessHour()">
+        <option value="true" selected>True</option>
+        <option value="false">False</option>
+    </select>
+	<br/>
+	<button id="checkAgentStatusButton" onclick="getAgentStatus()">Check Agent Status</button>
+</fieldset>
+<br/>
+
+<fieldset>
+    <legend>User Information:</legend>
+    <label for="fnameInput">First name:</label>
+    <input type="text" id="fnameInput" name="fnameInput" value="Holly"><br><br>
+    <label for="lnameInput">Last name:</label>
+    <input type="text" id="lnameInput" name="lnameInput" value="Wong"><br><br>
+	<label for="AccNoInput">Account No./ User Name:</label>
+    <input type="text" id="AccNoInput" name="AccNoInput" value="025114205"><br><br>
+</fieldset>
 
 
 </body>
