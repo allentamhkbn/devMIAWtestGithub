@@ -1442,7 +1442,17 @@ if(checkIE){
 
 <!-- Popup for migrated account -->
 
-<!--
+
+
+<div id="chatButtonLegend">
+	<div id="chatButton" onclick="handleChatClick()">
+		<div onclick="handleChatClick()">
+			<span id="chatStatus">Online Chat*</span>
+		</div>
+	</div>
+		<div id="chatButtonAdditionalText" class="st_info">Service hours: 0900-2100<br>Or <a href="https://www.hkbnes.net/web/en/support/contact-us?utm_campaign=contact_us&utm_source=myaccount_landing&utm_medium=referral" target="_blank">click here</a> to contact us</div>
+</div>
+
 <br/><br/><br/><br/>
 <h2>DEVMIAW Demo</h2>
 <br/>
@@ -1479,17 +1489,6 @@ if(checkIE){
 	<label for="AccNoInput">Account No./ User Name:</label>
     <input type="text" id="AccNoInput" name="AccNoInput" value="025114205"><br><br>
 </fieldset>
-
--->
-
-<div id="chatButtonLegend">
-	<div id="chatButton" onclick="handleChatClick()">
-		<div onclick="handleChatClick()">
-			<span id="chatStatus">Online Chat*</span>
-		</div>
-	</div>
-		<div id="chatButtonAdditionalText" class="st_info">Service hours: 0900-2100<br>Or <a href="https://www.hkbnes.net/web/en/support/contact-us?utm_campaign=contact_us&utm_source=myaccount_landing&utm_medium=referral" target="_blank">click here</a> to contact us</div>
-</div>
 
 <style type='text/css'>
 	.embeddedMessagingConversationButton {
