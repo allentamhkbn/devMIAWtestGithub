@@ -1519,7 +1519,7 @@ if(checkIE){
 	border-radius: 50%;
     }
     #chatButtonLegend {
-	position: fixed;
+	position: relative;
         bottom: 20px;
         right: 20px;
         cursor: pointer;
