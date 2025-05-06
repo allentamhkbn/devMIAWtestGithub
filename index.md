@@ -1557,6 +1557,17 @@ if(checkIE){
 			
 			embeddedservice_bootstrap.settings.hideChatButtonOnLoad = true;
 
+			/* UATDEMOGITHUB */
+			embeddedservice_bootstrap.init(
+				'00D0k000000EJLl',
+				'MIAW_Demo_GitHub',
+				'https://hkbn--escrmuat.sandbox.my.site.com/ESWMIAWDemoGitHub1746512976542',
+				{
+					scrt2URL: 'https://hkbn--escrmuat.sandbox.my.salesforce-scrt.com'
+				}
+			);
+			
+			/* MIAWDEV
 			embeddedservice_bootstrap.init(
 				'00DHz0000003j20',
 				'miawDemo',
@@ -1565,6 +1576,7 @@ if(checkIE){
 					scrt2URL: 'https://hkbn--devmiaw.sandbox.my.salesforce-scrt.com'
 				}
 			);
+   			*/
 		} catch (err) {
 			console.error('Error loading Embedded Messaging: ', err);
 		}
@@ -1657,7 +1669,8 @@ if(checkIE){
         }
 	}
 </script>
-<script type='text/javascript' src='https://hkbn--devmiaw.sandbox.my.site.com/ESWmiawDemo1728371866859/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+<!--<script type='text/javascript' src='https://hkbn--devmiaw.sandbox.my.site.com/ESWmiawDemo1728371866859/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>-->
+<script type='text/javascript' src='https://hkbn--escrmuat.sandbox.my.site.com/ESWMIAWDemoGitHub1746512976542/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 
