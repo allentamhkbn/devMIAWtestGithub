@@ -1489,7 +1489,7 @@ if(checkIE){
 </style>
 
 <script type='text/javascript'>
-/*
+
 	function getIsAllowEdit() {
 		const selectElement = document.getElementById('isLoginSelect');
 		const selectedValue = selectElement.value;
@@ -1497,7 +1497,7 @@ if(checkIE){
 		
 		return !(selectedValue === 'true' || selectedValue === true);
 	}
-
+/*
 	function getLanguage() {
 		const selectElement = document.getElementById('languageSelect');
 		const selectedValue = selectElement.value;
@@ -1629,7 +1629,6 @@ if(checkIE){
    }
 
     async function getOnlineAgentStatus() {
-	    return true;
 		// Define the API endpoint
 		//const apiUrl = 'https://192.168.170.152:8082/api/sys/sfdc/v1/messaging/onlineAgentStatus';
 		const apiUrl = 'https://muleapiuat.hkbn.com.hk/api/sys/sfdc/v1/messaging/onlineAgentStatus';
