@@ -1629,6 +1629,7 @@ if(checkIE){
    }
 
     async function getOnlineAgentStatus() {
+	    return true;
 		// Define the API endpoint
 		//const apiUrl = 'https://192.168.170.152:8082/api/sys/sfdc/v1/messaging/onlineAgentStatus';
 		const apiUrl = 'https://muleapiuat.hkbn.com.hk/api/sys/sfdc/v1/messaging/onlineAgentStatus';
