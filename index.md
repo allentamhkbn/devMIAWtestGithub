@@ -1543,7 +1543,7 @@ if(checkIE){
                 "value": isAllowEdit?'':lnameInput.value,
                 "isEditableByEndUser": isAllowEdit,
             },
-            "Account_No_User_Name": {
+            "Account No./ User Name": {
                 "value": isAllowEdit?'':AccNoInput.value,
                 "isEditableByEndUser": isAllowEdit,
             },
